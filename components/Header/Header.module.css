@@ -1,4 +1,42 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: "absolute";
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  padding:5px;
+}
+.title {
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rightContainer {
+  list-style: none;
+}
+
+.rightContainer:hover {
+  color: #0070f3;
+
+  /* border-color: #0070f3; */
+}
+
+.rightContainer>li{
+  font-size: 20px;
 }
