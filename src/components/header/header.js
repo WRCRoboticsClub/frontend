@@ -1,14 +1,14 @@
 /** @jsxImportSource @theme-ui/core */
 import { jsx, Container, Flex, Button } from "theme-ui";
 import { keyframes } from "@emotion/react";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+import Link from "next/link";
 import Logo from "../logo";
 import LogoDark from "../../assets/Club_logo.png";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "./header.data";
 
 export default function Header({ className }) {
-  console.log("Logo:", LogoDark);
   return (
     <header sx={styles.header} className={className}>
       <Container sx={styles.container}>
@@ -18,7 +18,7 @@ export default function Header({ className }) {
           {menuItems.map((menuItem, index) => (
             <Link
               activeClass="active"
-              to={menuItem.path}
+              href={menuItem.path}
               spy={true}
               smooth={true}
               offset={-70}

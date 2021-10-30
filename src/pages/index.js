@@ -1,17 +1,12 @@
 /** @jsxImportSource @theme-ui/core */
 import Head from "next/head";
 import Image from "next/image";
-import { ThemeProvider } from "@theme-ui/core";
-import theme from "../theme";
-import SEO from "../components/seo";
-import Layout from "../components/layout";
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <SEO title="Robotics Club,WRC" />
-        {/* <Banner />
+    <div>
+      {/* <h1>Hello world</h1> */}
+      {/* <Banner />
         <KeyFeature />
         <ServiceSection />
         <Feature />
@@ -20,7 +15,6 @@ export default function Home() {
         <Package />
         <TeamSection />
         <TestimonialCard /> */}
-      </Layout>
 
       {/* <footer >
         <a
@@ -34,6 +28,6 @@ export default function Home() {
           </span>
         </a>
       </footer> */}
-    </ThemeProvider>
+    </div>
   );
 }

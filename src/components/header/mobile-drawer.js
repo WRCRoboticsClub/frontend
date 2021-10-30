@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Box } from "theme-ui";
-// import { Scrollbars } from "react-custom-scrollbars";
+import { Scrollbars } from "react-custom-scrollbars-2";
 import Drawer from "../drawer";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
@@ -48,33 +49,33 @@ export default function MobileDrawer() {
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
     >
-      {/* <Scrollbars autoHide> */}
-        <Box sx={styles.content}>
-          <Box sx={styles.menu}>
-            {menuItems.map((menuItem, index) => (
-              <Link
-                activeClass="active"
-                to={menuItem.path}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                key={index}
-              >
-                {menuItem.label}
-              </Link>
+      {/* <Scrollbars> */}
+      <Box sx={styles.content}>
+        <Box sx={styles.menu}>
+          {menuItems.map((menuItem, index) => (
+            <Link
+              activeClass="active"
+              href={menuItem.path}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              key={index}
+            >
+              {menuItem.label}
+            </Link>
+          ))}
+        </Box>
+        <Box sx={styles.menuFooter}>
+          <Box sx={styles.social}>
+            {social.map((socialItem, i) => (
+              <Box as="span" key={i} sx={styles.social.icon}>
+                <Link href={socialItem.path}>{socialItem.icon}</Link>
+              </Box>
             ))}
           </Box>
-          <Box sx={styles.menuFooter}>
-            <Box sx={styles.social}>
-              {social.map((socialItem, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link to={socialItem.path}>{socialItem.icon}</Link>
-                </Box>
-              ))}
-            </Box>
-          </Box>
         </Box>
+      </Box>
       {/* </Scrollbars> */}
     </Drawer>
   );
