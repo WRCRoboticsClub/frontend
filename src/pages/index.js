@@ -1,8 +1,4 @@
 /** @jsxImportSource @theme-ui/core */
-import Head from "next/head";
-import { jsx } from "theme-ui";
-import { ThemeProvider } from "@theme-ui/core";
-import theme from "../theme";
 import ShapeLeft from "../assets/shape-left.png";
 import ShapeRight from "../assets/shape-right.png";
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
@@ -80,10 +76,10 @@ const styles = {
       textAlign: "center",
       display: "inline-flex",
       mb: [0, null, -6, null, null, "-40px", null, -3],
-
       img: {
         position: "relative",
         height: [200, "auto"],
+        width: [200, "auto"],
       },
     },
   },
