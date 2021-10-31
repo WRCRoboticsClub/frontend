@@ -1,6 +1,8 @@
+import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
+
 export default function Events() {
   return (
-    <section sx={styles.banner} id="home">
+    <section sx={styles.banner}>
       <Container sx={styles.banner.container}>
         <h1>Events</h1>
       </Container>

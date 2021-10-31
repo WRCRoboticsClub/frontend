@@ -1,6 +1,8 @@
+import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
+
 export default function Achievements() {
   return (
-    <section sx={styles.banner} id="home">
+    <section sx={styles.banner}>
       <Container sx={styles.banner.container}>
         <h1>Achievements</h1>
       </Container>
