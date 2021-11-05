@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Box } from "theme-ui";
-import { Scrollbars } from "react-custom-scrollbars-2";
+import { Scrollbars } from "react-custom-scrollbars";
 import Drawer from "../drawer";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
-// import { Link } from "react-scroll";
-import Link from "next/link";
+import { Link } from "react-scroll";
 import {
   FaFacebookF,
   FaTwitter,
@@ -49,13 +48,13 @@ export default function MobileDrawer() {
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
     >
-      {/* <Scrollbars> */}
+      {/* <Scrollbars > */}
       <Box sx={styles.content}>
         <Box sx={styles.menu}>
           {menuItems.map((menuItem, index) => (
             <Link
               activeClass="active"
-              href={menuItem.path}
+              to={menuItem.path}
               spy={true}
               smooth={true}
               offset={-70}
@@ -70,7 +69,7 @@ export default function MobileDrawer() {
           <Box sx={styles.social}>
             {social.map((socialItem, i) => (
               <Box as="span" key={i} sx={styles.social.icon}>
-                <Link href={socialItem.path}>{socialItem.icon}</Link>
+                <Link to={socialItem.path}>{socialItem.icon}</Link>
               </Box>
             ))}
           </Box>
@@ -97,7 +96,7 @@ const styles = {
   drawer: {
     width: "100%",
     height: "100%",
-    backgroundColor: "red",
+    backgroundColor: "dark",
   },
 
   close: {

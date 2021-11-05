@@ -1,5 +1,5 @@
 /** @jsxImportSource @theme-ui/core */
-import { jsx, Container, Flex, Button } from "theme-ui";
+import { Container, Flex, Button } from "theme-ui";
 import { keyframes } from "@emotion/react";
 // import { Link } from "react-scroll";
 import Link from "next/link";

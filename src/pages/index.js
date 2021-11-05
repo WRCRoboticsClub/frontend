@@ -79,7 +79,6 @@ const styles = {
       img: {
         position: "relative",
         height: [200, "auto"],
-        // width: [200, "auto"],
       },
     },
   },
