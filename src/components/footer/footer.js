@@ -1,7 +1,7 @@
 /** @jsxImportSource @theme-ui/core */
 import { jsx, Box, Container, Image, Text } from "theme-ui";
 import { Link } from "../link";
-import data from "./footer.data";
+import menuItems from "./footer.data";
 import FooterLogo from "../../assets/Club_logo.png";
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
           </Link>
           <Box sx={styles.footer}>
             <nav>
-              {data.menuItem.map((item, i) => (
+              {menuItems.map((item, i) => (
                 <Link
                   path={item.path}
                   key={i}
