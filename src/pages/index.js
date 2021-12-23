@@ -3,6 +3,7 @@ import ShapeLeft from "../assets/shape-left.png";
 import ShapeRight from "../assets/shape-right.png";
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
 import BannerImg from "../assets/homepage_photo.jpg";
+import KeyFeature from "../components/KeyFeature/key-feature";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
           <Image src={BannerImg.src} alt="banner" />
         </Box>
       </Container>
+      <KeyFeature />
     </section>
   );
 }

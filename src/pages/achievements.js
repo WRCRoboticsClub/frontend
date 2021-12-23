@@ -1,12 +1,18 @@
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
-
+import LoadingImg from "../assets/loading.gif";
 export default function Achievements() {
   return (
-    <section sx={styles.banner}>
+    <Box sx={styles.banner}>
       <Container sx={styles.banner.container}>
-        <h1>Achievements</h1>
+        <Box sx={styles.banner.contentBox}>
+          <h1>This page is in progress.</h1>
+          <h2>Catch up with you later.</h2>
+        </Box>
+        <Box sx={styles.banner.imageBox}>
+          <Image src={LoadingImg.src} alt="banner" />
+        </Box>
       </Container>
-    </section>
+    </Box>
   );
 }
 
@@ -22,6 +28,7 @@ const styles = {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
+      alignItems: "center",
     },
     contentBox: {
       width: ["100%", "90%", "535px", null, "57%", "60%", "68%", "60%"],
