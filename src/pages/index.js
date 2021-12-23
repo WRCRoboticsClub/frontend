@@ -4,6 +4,7 @@ import ShapeRight from "../assets/shape-right.png";
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
 import BannerImg from "../assets/homepage_photo.jpg";
 import KeyFeature from "../components/KeyFeature/key-feature";
+import Services from "../components/services/service";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         </Box>
       </Container>
       <KeyFeature />
+      <Services />
     </section>
   );
 }
