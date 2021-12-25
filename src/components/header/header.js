@@ -1,7 +1,6 @@
 /** @jsxImportSource @theme-ui/core */
 import { Container, Flex, Button } from "theme-ui";
 import { keyframes } from "@emotion/react";
-// import { Link } from "react-scroll";
 import Link from "next/link";
 import Logo from "../logo";
 import LogoDark from "../../assets/Club_logo.png";

@@ -48,34 +48,34 @@ export default function MobileDrawer() {
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
     >
-      {/* <Scrollbars > */}
-      <Box sx={styles.content}>
-        <Box sx={styles.menu}>
-          {menuItems.map((menuItem, index) => (
-            <Link
-              activeClass="active"
-              to={menuItem.path}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              key={index}
-            >
-              {menuItem.label}
-            </Link>
-          ))}
-        </Box>
-        <Box sx={styles.menuFooter}>
-          <Box sx={styles.social}>
-            {social.map((socialItem, i) => (
-              <Box as="span" key={i} sx={styles.social.icon}>
-                <Link to={socialItem.path}>{socialItem.icon}</Link>
-              </Box>
+      <Scrollbars autoHide>
+        <Box sx={styles.content}>
+          <Box sx={styles.menu}>
+            {menuItems.map((menuItem, index) => (
+              <Link
+                activeClass="active"
+                to={menuItem.path}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                key={index}
+              >
+                {menuItem.label}
+              </Link>
             ))}
           </Box>
+          <Box sx={styles.menuFooter}>
+            <Box sx={styles.social}>
+              {social.map((socialItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link to={socialItem.path}>{socialItem.icon}</Link>
+                </Box>
+              ))}
+            </Box>
+          </Box>
         </Box>
-      </Box>
-      {/* </Scrollbars> */}
+      </Scrollbars>
     </Drawer>
   );
 }
@@ -97,6 +97,8 @@ const styles = {
     width: "100%",
     height: "100%",
     backgroundColor: "dark",
+    position: "fixed",
+    zIndex: "1000",
   },
 
   close: {

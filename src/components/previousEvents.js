@@ -46,9 +46,13 @@ export default function PreviousEvents() {
         {data.map((item) => (
           <Box sx={styles.reviewCard} key={item.id}>
             <div className="card-event">
-              <Image src={item.avatar.src} alt="Client Image" />
+              <Image
+                src={item.avatar.src}
+                sx={styles.image}
+                alt="Client Image"
+              />
             </div>
-           
+
             <Heading as="h3" sx={styles.title}>
               {item.title}
             </Heading>
@@ -61,6 +65,11 @@ export default function PreviousEvents() {
 }
 
 const styles = {
+  image: {
+    width: "100%",
+    objectFit: "cover",
+    height: "50vh",
+  },
   grid: {
     mt: [0, null, -6, null, -4],
     gridGap: ["35px 0px", null, 0, null, null, "30px 35px"],
@@ -76,14 +85,14 @@ const styles = {
     boxShadow: "0px 0px 1px rgba(38, 78, 118, 0.35)",
     transition: "all 0.3s",
     borderRadius: "6px",
-    p: [
-      "30px 20px 35px",
-      "30px 25px 35px",
-      "30px 20px 35px",
-      "35px 30px 40px 40px",
-      "30px 30px 35px",
-      "35px 30px 40px 40px",
-    ],
+    // p: [
+    //   "30px 20px 35px",
+    //   "30px 25px 35px",
+    //   "30px 20px 35px",
+    //   "35px 30px 40px 40px",
+    //   "30px 30px 35px",
+    //   "35px 30px 40px 40px",
+    // ],
     bg: "white",
     textAlign: "left",
     m: [
@@ -100,7 +109,7 @@ const styles = {
     ".card-event": {
       display: "flex",
       alignItems: "center",
-      marginTop: [5, null, null, "33px"],
+      // marginTop: [5, null, null, "33px"],
       marginBottom: [5, null, null, "33px"],
       ".image": {
         flexShrink: 0,
@@ -121,13 +130,18 @@ const styles = {
     fontWeight: 700,
     mb: [3, null, null, "22px"],
     color: "text",
-    lineHeight: 1.6,
+    lineHeight: 1,
+    // paddingLeft: "10px",
+    p: ["0px 0px 0px 20px"],
   },
   description: {
-    fontSize: [1, null, null, 2],
+    fontSize: [1, null, null, 1],
     fontWeight: "normal",
     color: "text",
     lineHeight: [1.85, null, 2],
+    p: ["0px 0px 0px 20px"],
+    alignText: "center",
+    display: "block",
   },
   heading: {
     fontSize: [1, null, null, 2],

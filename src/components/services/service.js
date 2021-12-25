@@ -102,6 +102,7 @@ const styles = {
     px: "15px",
     ".carousel-container": {
       width: "100%",
+
       maxWidth: [
         "100%",
         null,
@@ -161,7 +162,7 @@ const styles = {
   title: {
     fontSize: [1, 2],
     fontWeight: 700,
-    p: [1, null, null, "10px 22px"],
+    p: [2, null, null, "10px 22px"],
     color: "text",
     lineHeight: 1.6,
     "&:hover": {
@@ -172,8 +173,8 @@ const styles = {
     fontSize: [1, null, null, 2],
     fontWeight: "normal",
     color: "text",
-    p: [1, null, null, "22px"],
-
-    lineHeight: [12, null, 2],
+    p: [2, null, null, "22px"],
+    lineHeight: [2, null, 2],
+    mb: [1, null, null, "30px"],
   },
 };
