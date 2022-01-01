@@ -7,7 +7,7 @@ import LogoDark from "../../assets/Club_logo.png";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "./header.data";
 
-export default function Header({ className }) {
+export default function Header({ className, isOpen, setIsOpen }) {
   return (
     <header sx={styles.header} className={className}>
       <Container sx={styles.container}>
@@ -36,7 +36,7 @@ export default function Header({ className }) {
           Get Started
         </Button>
 
-        <MobileDrawer />
+        <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />
       </Container>
     </header>
   );

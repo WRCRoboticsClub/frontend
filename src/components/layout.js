@@ -7,6 +7,7 @@ import Footer from "./footer/footer";
 
 export default function Layout({ children }) {
   const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleStateChange = (status) => {
     if (status.status === Sticky.STATUS_FIXED) {
@@ -19,9 +20,19 @@ export default function Layout({ children }) {
   return (
     <React.Fragment>
       <Sticky innerZ={1001} top={0} onStateChange={handleStateChange}>
-        <Header className={`${isSticky ? "sticky" : "unSticky"}`} />
+        <Header
+          className={`${isSticky ? "sticky" : "unSticky"}`}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
       </Sticky>
-      <main id="content" sx={{ variant: "layout.main" }}>
+      <main
+        id="content"
+        sx={{ variant: "layout.main" }}
+        // style={
+        //   isOpen ? { background: "rgba(255, 0, 0, 0.25)", zIndex: "999" } : {}
+        // }
+      >
         {children}
       </main>
       <Footer />
