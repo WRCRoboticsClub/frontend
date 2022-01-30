@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/achievements": "pages/achievements.html",
+  "/api/hello": "pages/api/hello.js",
+  "/committee": "pages/committee.html",
+  "/events": "pages/events.html",
+  "/": "pages/index.html",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
