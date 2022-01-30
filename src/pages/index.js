@@ -11,13 +11,11 @@ export default function Home() {
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h1" variant="heroPrimary">
-            Share Knowledge Explore Technique
+          <Heading as="h2" variant="heroPrimary">
+            Robotics Club, Paschimanchal Campus, Lamachaur, Pokhara.
           </Heading>
           <Text as="p" variant="heroSecondary">
-            We are a team that is excited to build physical things and explore
-            curiosities with an ultimate goal to transform them into knowledge
-            and experience.
+          We are a team of multiple disciples teamed up to continue and improve the culture of innovation, creative learning and teaching with extracurricular activities around campus. 
           </Text>
           <Button variant="primary">Explore</Button>
         </Box>
