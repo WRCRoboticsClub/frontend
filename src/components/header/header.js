@@ -5,7 +5,7 @@ import Link from "next/link";
 import Logo from "../logo";
 import LogoDark from "../../assets/Club_logo.png";
 import MobileDrawer from "./mobile-drawer";
-import menuItems from "./header.data";
+import menuItems from "../../data/header.data";
 
 export default function Header({ className, isOpen, setIsOpen }) {
   return (

@@ -1,41 +1,8 @@
 /** @jsxImportSource @theme-ui/core */
 import { jsx, Container, Heading, Text, Box, Image, Grid } from "theme-ui";
 import SectionHeader from "./section-header";
-import Avatar1 from "../assets/events/event1.png";
-import Avatar2 from "../assets/events/event2.png";
-import Avatar3 from "../assets/events/event3.png";
-import Avatar4 from "../assets/events/event5.png";
+import { previousEventsData as prevEvents } from "../data/previousEvents.data";
 
-const data = [
-  {
-    id: 1,
-    title: "Robo Rookies",
-    description:
-      "A workshop for every Robotics Enthusiast including topics like Into to Web Hosting, PCB Designing, IC circuit and Mechanical CAD.",
-    avatar: Avatar1,
-  },
-  {
-    id: 2,
-    title: "Daily Quiz Series",
-    description:
-      "Robotics Club proudly presents the Daily Quiz Series.Every Faculty will be given the questions each day for the next 7 days. The winner from every faculty will be rewarded with Rs. 50 recharge every day!",
-    avatar: Avatar2,
-  },
-  {
-    id: 3,
-    title: "Exploring Nepal - The Next level Robo Race",
-    description:
-      "Get ready to witness the awesomeness and skills, when two robots will race with each other against time completing the task on the arena. Its a next level Robo-race.",
-    avatar: Avatar3,
-  },
-  {
-    id: 4,
-    title: "Battle for speed",
-    description:
-      "Get ready to experience the battle of robots for their speed.",
-    avatar: Avatar4,
-  },
-];
 export default function PreviousEvents() {
   return (
     <section id="events" sx={{ variant: "section.events" }}>
@@ -43,7 +10,7 @@ export default function PreviousEvents() {
         <SectionHeader title="Previous Events" />
       </Container>
       <Grid sx={styles.grid}>
-        {data.map((item) => (
+        {prevEvents.map((item) => (
           <Box sx={styles.reviewCard} key={item.id}>
             <div className="card-event">
               <Image
@@ -56,6 +23,10 @@ export default function PreviousEvents() {
             <Heading as="h3" sx={styles.title}>
               {item.title}
             </Heading>
+            <Heading as="h5" sx={styles.title}>
+              Date : {item.date}
+            </Heading>
+            <Text sx={styles.description}>Type : {item.type}</Text>
             <Text sx={styles.description}>{item.description}</Text>
           </Box>
         ))}
@@ -78,7 +49,7 @@ const styles = {
       null,
       "repeat(2,1fr)",
       null,
-      "repeat(2,1fr)",
+      "repeat(3,1fr)",
     ],
   },
   reviewCard: {

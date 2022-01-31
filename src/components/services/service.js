@@ -4,7 +4,7 @@ import SectionHeader from "../section-header";
 import ButtonGroup from "../button-group";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { data } from "./service.data";
+import { data } from "../../data/service.data";
 
 const responsive = {
   desktop: {

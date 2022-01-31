@@ -1,7 +1,7 @@
 /** @jsxImportSource @theme-ui/core */
 import { jsx, Box, Container, Image, Text } from "theme-ui";
 import { Link } from "../link";
-import menuItems from "./footer.data";
+import menuItems from "../../data/footer.data";
 import FooterLogo from "../../assets/Club_logo.png";
 
 export default function Footer() {
