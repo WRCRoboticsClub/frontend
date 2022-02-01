@@ -2,25 +2,25 @@ import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
 import PreviousEvents from "../components/previousEvents";
 export default function Events() {
   return (
-    <Box>
-      <Box sx={styles.banner} id="events">
-        <Container sx={styles.banner.container}>
-          <Box sx={styles.banner.contentBox}>
-            <Heading as="h1" variant="heroPrimary">
-              No any events yet
-            </Heading>
-            <Text as="p" variant="heroSecondary">
-              We are working hard to bring you the best events in the world.
-              Please check back soon.
-            </Text>
-            <Button variant="primary">On the way</Button>
-          </Box>
-        </Container>
-      </Box>
+    // <Box>
+    //   <Box sx={styles.banner} id="events">
+    //     <Container sx={styles.banner.container}>
+    //       <Box sx={styles.banner.contentBox}>
+    //         <Heading as="h1" variant="heroPrimary">
+    //           No any events yet
+    //         </Heading>
+    //         <Text as="p" variant="heroSecondary">
+    //           We are working hard to bring you the best events in the world.
+    //           Please check back soon.
+    //         </Text>
+    //         <Button variant="primary">On the way</Button>
+    //       </Box>
+    //     </Container>
+    //   </Box>
       <Box>
         <PreviousEvents />
       </Box>
-    </Box>
+    // </Box>
   );
 }
 

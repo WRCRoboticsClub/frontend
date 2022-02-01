@@ -10,8 +10,7 @@ export default function Committee() {
     <section sx={styles.banner}>
       <Container sx={styles.banner.container}>
         <SectionHeader
-          slogan="Meet Our Incredible team"
-          title="The most qualified and professional"
+          slogan="Meet Our Enthusiastic Team"
         />
         <Grid sx={styles.grid}>
           {data.map((item) => (
