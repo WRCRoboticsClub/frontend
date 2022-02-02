@@ -56,7 +56,7 @@ export default function Services() {
   return (
     <section id="services" sx={{ variant: "section.testimonial" }}>
       <Container css={{ textAlign: "center" }}>
-        <SectionHeader slogan="Services" title="Learning and Teaching" />
+        <SectionHeader title="Services" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...carouselParams}>

@@ -11,7 +11,7 @@ export default function Home() {
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h2" variant="heroPrimary">
+          <Heading as="h4" variant="heroPrimary">
             Robotics Club, Paschimanchal Campus, Lamachaur, Pokhara.
           </Heading>
           <Text as="p" variant="heroSecondary">

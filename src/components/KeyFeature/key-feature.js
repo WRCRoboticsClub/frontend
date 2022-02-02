@@ -10,8 +10,7 @@ export default function KeyFeature() {
     <section sx={{ variant: "section.KeyFeature" }} id="feature">
       <Container sx={styles.container}>
         <SectionHeader
-          slogan="Whats the function"
-          title="Meet the feature of our Club"
+          title="Achievements"
         />
 
         <Grid sx={styles.grid}>

@@ -32,6 +32,7 @@ export default function Events() {
       <Box>
         <PreviousEvents />
       </Box>
+      //{" "}
     </Box>
   );
 }

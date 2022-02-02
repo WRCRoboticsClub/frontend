@@ -33,7 +33,7 @@ export default function Header({ className, isOpen, setIsOpen }) {
           variant="secondary"
           aria-label="Get Started"
         >
-          Get Started
+          Contact Us
         </Button>
 
         <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />

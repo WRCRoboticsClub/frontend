@@ -6,30 +6,23 @@ import Avatar4 from "../assets/testimonial/3D-printer.jpg";
 export const data = [
   {
     id: 1,
-    title: "3D Printing 1",
-    description: "Get working with our new 3D Printer.",
+    title: "3D Printing",
+    description: "We print 3D objects with our brand new 3d printer.",
     avatar: Avatar1,
     name: "Denny Hilguston",
   },
   {
     id: 2,
     title: "Sessions",
-    description: "Get beneficial with our interactive sessions.",
+    description: "We conduct targeted sessions every semester.",
     avatar: Avatar2,
     name: "Denny Hilguston",
   },
   {
     id: 3,
     title: "Skills Learning",
-    description: "Get knowlegable with our skills learning.",
+    description: "we conduct application specific workshop traning frequently.",
     avatar: Avatar3,
     name: "Denny Hilguston",
-  },
-  {
-    id: 4,
-    title: "3D Printing 4",
-    description: "Get working with our new 3D Printer.",
-    avatar: Avatar4,
-    name: "Denny Hilguston",
-  },
+  }
 ];
