@@ -15,7 +15,9 @@ export default function Home() {
             Robotics Club, Paschimanchal Campus, Lamachaur, Pokhara.
           </Heading>
           <Text as="p" variant="heroSecondary">
-          We are a team of multiple disciples teamed up to continue and improve the culture of innovation, creative learning and teaching with extracurricular activities around campus. 
+            We are a team of multiple disciples teamed up to continue and
+            improve the culture of innovation, creative learning and teaching
+            with extracurricular activities around campus.
           </Text>
           <Button variant="primary">Explore</Button>
         </Box>
