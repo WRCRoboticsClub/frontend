@@ -7,5 +7,5 @@ module.exports = {
       },
     },
   },
-  distDir: 'build',
+  // distDir: 'build',
 };
