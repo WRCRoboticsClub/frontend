@@ -48,24 +48,27 @@ const styles = {
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
+      "@media screen and (max-width: 800px)": {
+        flexDirection: "column",
+        top: "0",
+        minHeight: "0vh",
+      },
     },
     contentBox: {
       width: ["100%", "90%", "535px", null, "57%", "60%", "68%", "60%"],
       mx: "auto",
       textAlign: "center",
-      mb: ["40px", null, null, null, null, 7],
+      my: ["20px", null, null, null, null, 5],
     },
     imageBox: {
       // justifyContent: "left",
       display: "flex",
       alignContent: "flex-start",
       objectFit: "cover",
-      // width: ["70%", "60%", "535px", null, "67%", "80%", "78%", "70%"],
       maxWidth: "60%",
-      // img: {
-      //   position: "relative",
-      //   height: [100, "auto"],
-      // },
+      "@media screen and (max-width: 800px)": {
+        maxWidth: "100%",
+      },
     },
     descriptions: {
       display: "flex",
@@ -85,7 +88,7 @@ const styles = {
   },
   title: {
     fontSize: [0, "20px", null, "25px"],
-    color: "#ffffff",
+    color: "#000000",
     textAlign: "center",
     letterSpacing: ["1.5px", null, "2px"],
     textTransform: "uppercase",
