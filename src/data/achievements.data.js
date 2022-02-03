@@ -1,21 +1,21 @@
-import Test1 from "../assets/testimonial/skills-learning.jpg";
-import Test2 from "../assets/testimonial/sessions.jpg";
-import Test3 from "../assets/testimonial/3d-printer.jpg";
+import Asset1 from "../assets/testimonial/skills-learning.jpg";
+import Asset2 from "../assets/testimonial/sessions.jpg";
+import Asset3 from "../assets/testimonial/online.png";
 
 export const fakeDatas = [
   {
     title: "Achievement-One",
     id: "1",
-    banner: Test1,
+    banner: Asset1,
   },
   {
     title: "Achievement-Two",
     id: "2",
-    banner: Test2,
+    banner: Asset2,
   },
   {
     title: "Achievement-Three",
     id: "3",
-    banner: Test3,
+    banner: Asset3,
   },
 ];

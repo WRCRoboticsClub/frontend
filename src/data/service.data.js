@@ -1,7 +1,7 @@
-import Avatar1 from "../assets/testimonial/3D-printer.jpg";
+import Avatar1 from "../assets/testimonial/Printer_3D.jpg";
 import Avatar2 from "../assets/testimonial/sessions.jpg";
 import Avatar3 from "../assets/testimonial/skills-learning.jpg";
-import Avatar4 from "../assets/testimonial/3D-printer.jpg";
+// import Avatar4 from "../assets/testimonial/3D-printer.jpg";
 
 export const data = [
   {
@@ -24,5 +24,5 @@ export const data = [
     description: "we conduct application specific workshop traning frequently.",
     avatar: Avatar3,
     name: "Denny Hilguston",
-  }
+  },
 ];

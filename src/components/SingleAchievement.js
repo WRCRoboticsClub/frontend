@@ -3,6 +3,8 @@ import LoadingImg from "../assets/loading.gif";
 import SessionsImg from "../assets/testimonial/sessions.jpg";
 import ShapeLeft from "../assets/shape-left.png";
 import ShapeRight from "../assets/shape-right.png";
+import ShapePattern1 from "../assets/shape-pattern1.png";
+import ShapePattern2 from "../assets/shape-pattern2.png";
 
 function SingleAchievement({ infos }) {
   return (
@@ -27,14 +29,23 @@ function SingleAchievement({ infos }) {
                 style={infos.id % 2 ? { order: 1 } : { order: -1 }}
               >
                 <Image src={infos.banner.src} />
-                <Image
+                {/* <Image
                   sx={styles.imageBoxContainer.svgImageLeft}
                   src={ShapeLeft.src}
                 />
                 <Image
                   sx={styles.imageBoxContainer.svgImageRight}
                   src={ShapeRight.src}
-                />
+                /> */}
+                {infos.id % 2 ? (
+                  <Box sx={styles.shapeBoxRight}>
+                    <Image src={ShapePattern2.src} alt="shape" />
+                  </Box>
+                ) : (
+                  <Box sx={styles.shapeBoxLeft}>
+                    <Image src={ShapePattern1.src} alt="shape" />
+                  </Box>
+                )}
               </Box>
             </Box>
           </Box>
@@ -126,5 +137,19 @@ const styles = {
         // width: [200, "auto"],
       },
     },
+  },
+  shapeBoxLeft: {
+    position: "absolute",
+    bottom: -68,
+    left: -160,
+    zIndex: -1,
+    display: ["none", null, null, null, null, "inline-block"],
+  },
+  shapeBoxRight: {
+    position: "absolute",
+    bottom: -65,
+    right: -150,
+    zIndex: -1,
+    display: ["none", null, "none", null, "inline-block"],
   },
 };

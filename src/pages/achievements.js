@@ -4,8 +4,9 @@ import { fakeDatas } from "../data/achievements.data";
 export default function Achievements() {
   return (
     <>
-      {fakeDatas.map((sData) => {
-        return <SingleAchievement infos={sData} />;
+      {fakeDatas.map((sData, index) => {
+        //always use keys for react while mapping
+        return <SingleAchievement key={index} infos={sData} />;
       })}
     </>
   );
