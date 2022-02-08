@@ -1,6 +1,4 @@
-import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
-import LoadingImg from "../assets/loading.gif";
-import SessionsImg from "../assets/testimonial/sessions.jpg";
+import { Box, Heading, Text, Image, Button } from "theme-ui";
 import ShapeLeft from "../assets/shape-left.png";
 import ShapeRight from "../assets/shape-right.png";
 import ShapePattern1 from "../assets/shape-pattern1.png";
@@ -134,7 +132,6 @@ const styles = {
       img: {
         position: "relative",
         height: [200, "auto"],
-        // width: [200, "auto"],
       },
     },
   },
@@ -143,13 +140,33 @@ const styles = {
     bottom: -68,
     left: -160,
     zIndex: -1,
-    display: ["none", null, null, null, null, "inline-block"],
+    display: ["none", null, "none", null, null, "inline-block"],
+    // "@media screen and (max-width:1450)": {
+    //   width: "200px",
+    //   height: "200px",
+    //   left: -67,
+    // },
+    // "@media screen and (max-width:500)": {
+    //   width: "150px",
+    //   height: "150px",
+    //   left: -67,
+    // },
   },
   shapeBoxRight: {
     position: "absolute",
     bottom: -65,
     right: -150,
     zIndex: -1,
-    display: ["none", null, "none", null, "inline-block"],
+    display: ["none", null, "none", null, null, "inline-block"],
+    // "@media screen and (max-width:1450)": {
+    //   width: "200px",
+    //   height: "200px",
+    //   right: -67,
+    // },
+    // "@media screen and (max-width:500)": {
+    //   width: "150px",
+    //   height: "150px",
+    //   right: -67,
+    // },
   },
 };

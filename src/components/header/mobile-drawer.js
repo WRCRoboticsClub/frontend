@@ -2,34 +2,39 @@ import React, { useState } from "react";
 import { Box, Close } from "theme-ui";
 import Link from "next/link";
 import { keyframes } from "@emotion/react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaGithubAlt,
-  FaDribbble,
-} from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import menuItems from "../../data/header.data";
 
 const social = [
   {
-    path: "https://www.facebook.com/",
-    icon: <FaFacebookF />,
+    path: "https://www.facebook.com/wrcrobo",
+    icon: <FaFacebook />,
+    color: "#4267B2",
   },
   {
     path: "https://www.twitter.com",
     icon: <FaTwitter />,
+    color: "#1DA1F2",
   },
   {
     path: "/",
-    icon: <FaGithubAlt />,
+    icon: <FaGithub />,
+    color: "#171515",
   },
   {
-    path: "/",
-    icon: <FaDribbble />,
+    path: "https://www.instagram.com/robotics.club.wrc/",
+    icon: <FaInstagram />,
+    color: "#bc2a8d",
+  },
+  {
+    path: "https://mail.google.com/mail/u/0",
+    icon: <SiGmail />,
+    color: "#D44638",
   },
 ];
 
-export default function MobileDrawer({isDrawerOpen,setIsDrawerOpen}) {
+export default function MobileDrawer({ isDrawerOpen, setIsDrawerOpen }) {
   //const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   return (
     <Box sx={styles.handler}>
@@ -195,6 +200,7 @@ const styles = {
       mr: "15px",
       transition: "all 0.25s",
       cursor: "pointer",
+      // color: ["green", "blue", "red", "yellow"],
       ":last-child": {
         mr: "0",
       },
