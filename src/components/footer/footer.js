@@ -5,6 +5,8 @@ import menuItems from "../../data/footer.data";
 import FooterLogo from "../../assets/Club_logo.png";
 import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import Copyright from "./Copyright";
+import { display } from "@mui/system";
 
 const social = [
   {
@@ -36,56 +38,64 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer sx={styles.footer}>
-      <Container>
-        <Box sx={styles.footer.footerBottomArea}>
-          <Box sx={styles.footer}>
-            <Text sx={styles.contact.title}>Follow us @</Text>
-            <Box sx={styles.social}>
-              {social.map((socialItem, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link href={socialItem.path} color={socialItem.color}>
-                    {socialItem.icon}
-                  </Link>
-                </Box>
-              ))}
-            </Box>
-          </Box>
-          <Box sx={styles.footer}>
-            <Link path="/">
-              <Image src={FooterLogo.src} alt="logo" sx={styles.footer.logo} />
-            </Link>
-            <nav sx={styles.footer.links}>
-              {menuItems.map((item, i) => (
-                <Link
-                  path={item.path}
-                  key={i}
-                  label={item.label}
-                  sx={styles.footer.link}
+    <>
+      <footer sx={styles.footer}>
+        <Container>
+          <Box sx={styles.footer.footerBottomArea}>
+            <Box sx={styles.footerLink}>
+              <Link path="/">
+                <Image
+                  src={FooterLogo.src}
+                  alt="logo"
+                  sx={styles.footer.logo}
                 />
-              ))}
-            </nav>
-          </Box>
-          <Box sx={styles.contact}>
-            <Text sx={styles.contact.title}>Contact Us</Text>
-            <Box sx={styles.contact.info}>
-              <Text sx={styles.contact.phone}>+9779846211026</Text>
-              <Text sx={styles.contact.subTitle}>Executive Head</Text>
-              <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
+              </Link>
+              <nav sx={styles.footer.links}>
+                {menuItems.map((item, i) => (
+                  <Link
+                    path={item.path}
+                    key={i}
+                    label={item.label}
+                    sx={styles.footer.link}
+                  />
+                ))}
+              </nav>
+            </Box>
+
+            <Box sx={styles.contact}>
+              <Text sx={styles.contact.title}>Contact Us</Text>
+              <Box sx={styles.contact.info}>
+                <Text sx={styles.contact.phone}>+9779846211026</Text>
+                <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+                <Text sx={styles.contact.subTitle}>Executive Head</Text>
+                <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
+              </Box>
+            </Box>
+
+            <Box sx={styles.footer}>
+              <Text sx={styles.contact.title}>Follow us @</Text>
+              <Box sx={styles.social}>
+                {social.map((socialItem, i) => (
+                  <Box as="span" key={i} sx={styles.social.icon}>
+                    <Link href={socialItem.path} color={socialItem.color}>
+                      {socialItem.icon}
+                    </Link>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Text sx={styles.footer.copyright}>
-          Copyright by {new Date().getFullYear()}
-        </Text>
-      </Container>
-    </footer>
+        </Container>
+      </footer>
+      <Copyright />
+    </>
   );
 }
 
 const styles = {
   footer: {
     padding: "1rem",
+
     footerBottomArea: {
       borderTop: "1px solid",
       borderTopColor: "border_color",
@@ -111,30 +121,36 @@ const styles = {
       alignItems: "center",
       justifyContent: "center",
       flexWrap: "wrap",
-      flexDirection: "row",
+      flexDirection: "column",
     },
     link: {
       fontSize: [1, "15px"],
       color: "text",
-      fontWeight: "400",
-      mb: 2,
+      fontWeight: "600",
       cursor: "pointer",
       transition: "all 0.35s",
       display: "block",
-      textDecoration: "none",
+      textDecoration: "underline",
       lineHeight: [1.5, null, 1.8],
       px: [2, null, 4],
       ":hover": {
         color: "primary",
       },
-    },
-    copyright: {
-      fontSize: [1, "15px"],
-      width: "100%",
+
+      letterSpacing: ["1.5px", null, "2px"],
     },
     logo: {
-      width: "200px",
-      height: "75px",
+      width: "150px",
+      height: "60px",
+    },
+  },
+  footerLink: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "@media screen and (max-width: 1024px)": {
+      display: "none",
     },
   },
   social: {
