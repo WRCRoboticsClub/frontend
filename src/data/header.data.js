@@ -15,4 +15,8 @@ export default [
     path: "/committee",
     label: "Committee",
   },
+  {
+    path:'/feedbackForm',
+    label:"Feedback Form"
+  }
 ];
