@@ -1,58 +1,106 @@
 /** @jsxImportSource @theme-ui/core */
-import { useState } from "react";
-import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
-import {
-    Label,
-    Input,
-    Select,
-    Textarea,
-    Radio,
-    Checkbox,
-    Slider,
-  } from 'theme-ui';
+import { useState, useEffect } from "react";
+import { Container, Box, Label, Input, Textarea, Button } from "theme-ui";
+import Modal from "../components/Modal";
 
 export default function feedbackForm() {
-  const baseurl = 'https://roboticswrc.herokuapp.com/feedback.php';
+  const baseurl = "https://roboticswrc.herokuapp.com/feedback.php";
 
-    const [formData,setFormData] = useState({
-        name:'',
-        email:'',
-        comment:''
-    });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    comment: "",
+  });
+  const [isOpen, setIsOpen] = useState(false);
 
-  const submitForm = async (e)=>{
+  // const { openModal } = useModals();
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const clearState = () => {
+    setFormData({ name: "", email: "", comment: "" });
+    console.log("cleared");
+  };
+  const submitForm = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
-    const response = await fetch(baseurl,{
-      method:"POST",
-      body:JSON.stringify({data:1, formData}),
-      headers:{
-        'Content-Type':"application/json",
-      }
+    setIsOpen(true);
+    console.log("before", formData);
+    const response = await fetch(baseurl, {
+      method: "POST",
+      body: JSON.stringify({ data: 1, formData }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    console.log("done", response);
 
-    console.log('done',response);
-  }
+    if (response.statusText === "OK") {
+      clearState();
+    }
+  };
+
+  // useEffect(() => {
+  //   if (clearValue) {
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       comment: "",
+  //     });
+  //     console.log("after", formData);
+  //   } else {
+  //     console.log("nokay");
+  //   }
+  // }, [clearValue]);
 
   return (
     <section sx={styles.banner} id="form">
       <Container sx={styles.banner.container}>
-       <Box as="form" onSubmit={(e) =>submitForm(e)}>
-        <Label htmlFor="name">Name</Label>
-        <Input name="name" id="name" mb={5} placeholder="Full Name" onChange={(e)=>setFormData({...formData,name:e.target.value})}/>
-        <Label htmlFor="email">Email</Label>
-        <Input name="email" id="email" mb={5} placeholder="Email" onChange={(e)=>setFormData({...formData,email:e.target.value})}/>
+        <Box as="form" onSubmit={(e) => submitForm(e)}>
+          <Label htmlFor="name">Name</Label>
+          <Input
+            name="name"
+            id="name"
+            mb={5}
+            value={formData.name}
+            placeholder="Full Name"
+            onChange={onChange}
+          />
+          <Label htmlFor="email">Email</Label>
+          <Input
+            name="email"
+            id="email"
+            mb={5}
+            value={formData.email}
+            placeholder="Email"
+            onChange={onChange}
+          />
 
-  
-        <Label htmlFor="comment">Provide us any feedback related to Rainy session</Label>
-        <Textarea name="comment" id="comment" placeholder="Feedback" rows={6} mb={5} onChange={(e)=>setFormData({...formData,comment:e.target.value})}/>
-        
-      
-        <Button>Submit</Button>
+          <Label htmlFor="comment">
+            Provide us any feedback related to Rainy session
+          </Label>
+          <Textarea
+            name="comment"
+            id="comment"
+            placeholder="Feedback"
+            value={formData.comment}
+            rows={6}
+            mb={5}
+            onChange={onChange}
+          />
+
+          <Button>Submit</Button>
         </Box>
+        <Modal
+          open={isOpen}
+          setOpen={setIsOpen}
+          title={"Feedback"}
+          message={"Thank you for your response!"}
+        />
       </Container>
-      
     </section>
   );
 }
@@ -62,7 +110,10 @@ const styles = {
     pt: ["140px", "145px", "155px", "170px", null, null, "180px", "215px"],
     pb: [2, null, 0, null, 2, 0, null, 5],
     position: "relative",
-   
+
+    // ::backdrop:{
+    //   backgroundColor:'#000000';
+    // }
     container: {
       minHeight: "inherit",
       display: "flex",

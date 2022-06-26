@@ -15,6 +15,8 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.6.0",
+    "@mattjennings/react-modal": "^1.0.3",
+    "@mattjennings/react-modal-stack": "^1.0.4",
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.5",
     "@theme-ui/core": "^0.12.0",
