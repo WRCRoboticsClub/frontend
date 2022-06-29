@@ -26,13 +26,7 @@ export default function Layout({ children }) {
           setIsOpen={setIsOpen}
         />
       </Sticky>
-      <main
-        id="content"
-        sx={{ variant: "layout.main" }}
-        // style={
-        //   isOpen ? { background: "rgba(255, 0, 0, 0.25)", zIndex: "999" } : {}
-        // }
-      >
+      <main id="content" sx={{ variant: "layout.main" }}>
         {children}
       </main>
       <Footer />

@@ -6,7 +6,6 @@ import FooterLogo from "../../assets/Club_logo.png";
 import { FaFacebook, FaTwitter, FaGithub, FaInstagram } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Copyright from "./Copyright";
-import { display } from "@mui/system";
 
 const social = [
   {
@@ -39,54 +38,50 @@ const social = [
 export default function Footer() {
   return (
     <>
-      <footer sx={styles.footer}>
-        <Container>
-          <Box sx={styles.footer.footerBottomArea}>
-            <Box sx={styles.footerLink}>
-              <Link path="/">
-                <Image
-                  src={FooterLogo.src}
-                  alt="logo"
-                  sx={styles.footer.logo}
+      {/* <footer sx={styles.footer}> */}
+      <Container>
+        <Box sx={styles.footer.footerBottomArea}>
+          <Box sx={styles.footerLink}>
+            <Link path="/">
+              <Image src={FooterLogo.src} alt="logo" sx={styles.footer.logo} />
+            </Link>
+            <nav sx={styles.footer.links}>
+              {menuItems.map((item, i) => (
+                <Link
+                  path={item.path}
+                  key={i}
+                  label={item.label}
+                  sx={styles.footer.link}
                 />
-              </Link>
-              <nav sx={styles.footer.links}>
-                {menuItems.map((item, i) => (
-                  <Link
-                    path={item.path}
-                    key={i}
-                    label={item.label}
-                    sx={styles.footer.link}
-                  />
-                ))}
-              </nav>
-            </Box>
+              ))}
+            </nav>
+          </Box>
 
-            <Box sx={styles.contact}>
-              <Text sx={styles.contact.title}>Contact Us</Text>
-              <Box sx={styles.contact.info}>
-                <Text sx={styles.contact.phone}>+9779846211026</Text>
-                <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
-                <Text sx={styles.contact.subTitle}>Executive Head</Text>
-                <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
-              </Box>
-            </Box>
-
-            <Box sx={styles.footer}>
-              <Text sx={styles.contact.title}>Follow us @</Text>
-              <Box sx={styles.social}>
-                {social.map((socialItem, i) => (
-                  <Box as="span" key={i} sx={styles.social.icon}>
-                    <Link href={socialItem.path} color={socialItem.color}>
-                      {socialItem.icon}
-                    </Link>
-                  </Box>
-                ))}
-              </Box>
+          <Box sx={styles.contact}>
+            <Text sx={styles.contact.title}>Contact Us</Text>
+            <Box sx={styles.contact.info}>
+              <Text sx={styles.contact.phone}>+9779846211026</Text>
+              <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+              <Text sx={styles.contact.subTitle}>Executive Head</Text>
+              <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
             </Box>
           </Box>
-        </Container>
-      </footer>
+
+          <Box sx={styles.footer}>
+            <Text sx={styles.contact.title}>Follow us @</Text>
+            <Box sx={styles.social}>
+              {social.map((socialItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link href={socialItem.path} color={socialItem.color}>
+                    {socialItem.icon}
+                  </Link>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      </Container>
+      {/* </footer> */}
       <Copyright />
     </>
   );
@@ -105,6 +100,10 @@ const styles = {
       textAlign: "center",
       flexDirection: "row",
       justifyContent: "space-between",
+
+      "@media screen and (max-width:576px)": {
+        flexDirection: "column",
+      },
     },
     menus: {
       mt: [3, 4],

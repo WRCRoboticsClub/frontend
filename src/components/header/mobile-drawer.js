@@ -151,6 +151,7 @@ const styles = {
     backgroundColor: "#F4F5FF",
     zIndex: "1000",
     animation: `${drawerAnimation} 0.4s ease`,
+    backdropFilter: "blur(5px)",
   },
 
   menu: {

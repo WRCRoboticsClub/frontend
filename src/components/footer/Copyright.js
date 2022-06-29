@@ -5,23 +5,24 @@ import Link from "next/link";
 export default function Copyright() {
   return (
     <Box sx={styles.container}>
-      <Box sx={styles.copyright}>
-        <Image src={CopyrightLogo.src} alt="copyright" sx={styles.image} />
-        <Text sx={styles.text}>Copyright by {new Date().getFullYear()}</Text>
-      </Box>
-      {/* <hr sx={styles.hr} /> */}
-      <Box sx={styles.designer}>
-        <Text sx={styles.devName}>
-          Frontend dev:
-          <Link href="https://www.facebook.com/knight.shah/">Sunil Shah</Link>
-        </Text>
+      <Box sx={styles.content}>
+        <Box sx={styles.copyright}>
+          <Image src={CopyrightLogo.src} alt="copyright" sx={styles.image} />
+          <Text sx={styles.text}>Copyright by {new Date().getFullYear()}</Text>
+        </Box>
+        <Box sx={styles.designer}>
+          <Text sx={styles.devName}>
+            Frontend dev:
+            <Link href="https://www.facebook.com/knight.shah/">Sunil Shah</Link>
+          </Text>
 
-        <Text sx={styles.devName}>
-          Backend dev:
-          <Link href="https://www.facebook.com/roshan.kc.3557440">
-            Roshan KC
-          </Link>
-        </Text>
+          <Text sx={styles.devName}>
+            Backend dev:
+            <Link href="https://www.facebook.com/roshan.kc.3557440">
+              Roshan KC
+            </Link>
+          </Text>
+        </Box>
       </Box>
     </Box>
   );
@@ -32,14 +33,16 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
-    width: "100vw",
     height: "200px",
     backgroundColor: "primary",
   },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
   copyright: {
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
   },
   text: {
@@ -57,11 +60,12 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "500px",
+    // width: "500px",
   },
   devName: {
     fontSize: [1, "15px"],
-    width: "100%",
+    // width: "100%",
+    padding: "10px",
     color: "white",
     fontWeight: "400",
     fontFamily: "Verdana,sans-serif",
