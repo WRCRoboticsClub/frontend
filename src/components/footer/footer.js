@@ -38,63 +38,67 @@ const social = [
 export default function Footer() {
   return (
     <>
-      {/* <footer sx={styles.footer}> */}
-      <Container>
-        <Box sx={styles.footer.footerBottomArea}>
-          <Box sx={styles.footerLink}>
-            <Link path="/">
-              <Image src={FooterLogo.src} alt="logo" sx={styles.footer.logo} />
-            </Link>
-            <nav sx={styles.footer.links}>
-              {menuItems.map((item, i) => (
-                <Link
-                  path={item.path}
-                  key={i}
-                  label={item.label}
-                  sx={styles.footer.link}
+      <footer sx={styles.footer}>
+        <Container>
+          <Box sx={styles.footer.footerBottomArea}>
+            <Box sx={styles.footerLink}>
+              <Link path="/">
+                <Image
+                  src={FooterLogo.src}
+                  alt="logo"
+                  sx={styles.footer.logo}
                 />
-              ))}
-            </nav>
-          </Box>
+              </Link>
+              <nav sx={styles.footer.links}>
+                {menuItems.map((item, i) => (
+                  <Link
+                    path={item.path}
+                    key={i}
+                    label={item.label}
+                    sx={styles.footer.link}
+                  />
+                ))}
+              </nav>
+            </Box>
 
-          <Box sx={styles.contact}>
-            <Text sx={styles.contact.title}>Contact Us</Text>
-            <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
-            <Box sx={styles.contact.container}>
-              {/* <Box sx={styles.contact.info}>
+            <Box sx={styles.contact}>
+              <Text sx={styles.contact.title}>Contact Us</Text>
+              <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+              <Box sx={styles.contact.container}>
+                {/* <Box sx={styles.contact.info}>
                 <Text sx={styles.contact.phone}>+9779846211026</Text>
                 <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
                 <Text sx={styles.contact.subTitle}>Executive Head</Text>
                 <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
               </Box> */}
-              <Box sx={styles.contact.info}>
-                <Text sx={styles.contact.phone}>+9779849485022</Text>
-                <Text sx={styles.contact.subTitle}>Executive Head</Text>
-                <Text sx={styles.contact.subTitle}>Sachin Giri</Text>
-              </Box>
-              <Box sx={styles.contact.info}>
-                <Text sx={styles.contact.phone}>+9779860320584</Text>
-                <Text sx={styles.contact.subTitle}>Vice Executive Head</Text>
-                <Text sx={styles.contact.subTitle}>Anis Shrestha</Text>
-              </Box>
-            </Box>
-          </Box>
-
-          <Box sx={styles.footer}>
-            <Text sx={styles.contact.title}>Follow us @</Text>
-            <Box sx={styles.social}>
-              {social.map((socialItem, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link href={socialItem.path} color={socialItem.color}>
-                    {socialItem.icon}
-                  </Link>
+                <Box sx={styles.contact.info}>
+                  <Text sx={styles.contact.phone}>+9779849485022</Text>
+                  <Text sx={styles.contact.subTitle}>Executive Head</Text>
+                  <Text sx={styles.contact.subTitle}>Sachin Giri</Text>
                 </Box>
-              ))}
+                <Box sx={styles.contact.info}>
+                  <Text sx={styles.contact.phone}>+9779860320584</Text>
+                  <Text sx={styles.contact.subTitle}>Vice Executive Head</Text>
+                  <Text sx={styles.contact.subTitle}>Anis Shrestha</Text>
+                </Box>
+              </Box>
+            </Box>
+
+            <Box sx={styles.footer}>
+              <Text sx={styles.contact.title}>Follow us @</Text>
+              <Box sx={styles.social}>
+                {social.map((socialItem, i) => (
+                  <Box as="span" key={i} sx={styles.social.icon}>
+                    <Link href={socialItem.path} color={socialItem.color}>
+                      {socialItem.icon}
+                    </Link>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
-      {/* </footer> */}
+        </Container>
+      </footer>
       <Copyright />
     </>
   );

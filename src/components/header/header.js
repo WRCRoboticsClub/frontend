@@ -43,6 +43,7 @@ export default function Header({ className, isOpen, setIsOpen }) {
             variant="secondary"
             aria-label="Get Started"
             sx={styles.rightContainer.button}
+            // onClick={}
           >
             Contact Us
           </Button>
