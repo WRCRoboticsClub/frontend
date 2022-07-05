@@ -59,11 +59,24 @@ export default function Footer() {
 
           <Box sx={styles.contact}>
             <Text sx={styles.contact.title}>Contact Us</Text>
-            <Box sx={styles.contact.info}>
-              <Text sx={styles.contact.phone}>+9779846211026</Text>
-              <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
-              <Text sx={styles.contact.subTitle}>Executive Head</Text>
-              <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
+            <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+            <Box sx={styles.contact.container}>
+              {/* <Box sx={styles.contact.info}>
+                <Text sx={styles.contact.phone}>+9779846211026</Text>
+                <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+                <Text sx={styles.contact.subTitle}>Executive Head</Text>
+                <Text sx={styles.contact.subTitle}>Shishir Babu Rijal</Text>
+              </Box> */}
+              <Box sx={styles.contact.info}>
+                <Text sx={styles.contact.phone}>+9779849485022</Text>
+                <Text sx={styles.contact.subTitle}>Executive Head</Text>
+                <Text sx={styles.contact.subTitle}>Sachin Giri</Text>
+              </Box>
+              <Box sx={styles.contact.info}>
+                <Text sx={styles.contact.phone}>+9779860320584</Text>
+                <Text sx={styles.contact.subTitle}>Vice Executive Head</Text>
+                <Text sx={styles.contact.subTitle}>Anis Shrestha</Text>
+              </Box>
             </Box>
           </Box>
 
@@ -195,6 +208,7 @@ const styles = {
       justifyContent: "center",
       flexWrap: "wrap",
       flexDirection: "column",
+      px: [2, null, 4],
     },
     phone: {
       fontSize: [1, "27px"],
@@ -213,6 +227,12 @@ const styles = {
       fontWeight: "600",
       mb: 2,
       lineHeight: 1.5,
+    },
+    container: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      mt: [3, 4],
     },
   },
 };

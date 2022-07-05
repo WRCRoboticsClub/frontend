@@ -1,5 +1,5 @@
 /** @jsxImportSource @theme-ui/core */
-import { Container, Flex, Button } from "theme-ui";
+import { Container, Flex, Button, Select, Box } from "theme-ui";
 import { keyframes } from "@emotion/react";
 import Link from "next/link";
 import Logo from "../logo";
@@ -11,7 +11,7 @@ export default function Header({ className, isOpen, setIsOpen }) {
   return (
     <header sx={styles.header} className={className}>
       <Container sx={styles.container}>
-        <Logo src={LogoDark.src} />
+        <Logo src={LogoDark.src} sx={styles.container.logo} />
 
         <Flex as="nav" sx={styles.nav}>
           {menuItems.map((menuItem, index) => (
@@ -28,14 +28,25 @@ export default function Header({ className, isOpen, setIsOpen }) {
             </Link>
           ))}
         </Flex>
-        <Button
-          className="donate__btn"
-          variant="secondary"
-          aria-label="Get Started"
-        >
-          Contact Us
-        </Button>
+        <Box sx={styles.rightContainer}>
+          {/* <Select
+            name="committee"
+            defaultValue="Hello"
+            sx={styles.rightContainer.select}
+          >
+            <option value="17th-committee">17th executive committee</option>
+            <option value="16th-committee">16th executive committee</option>
+          </Select> */}
 
+          <Button
+            // className="donate__btn"
+            variant="secondary"
+            aria-label="Get Started"
+            sx={styles.rightContainer.button}
+          >
+            Contact Us
+          </Button>
+        </Box>
         <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />
       </Container>
     </header>
@@ -69,7 +80,7 @@ const styles = {
     animation: `${positionAnim} 0.4s ease`,
     ".donate__btn": {
       flexShrink: 0,
-      mr: [15, 20, null, null, 0],
+      mr: [10, 15, null, null, 0],
       ml: ["auto", null, null, null, 0],
     },
     "&.sticky": {
@@ -87,6 +98,9 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    logo: {
+      width: "200px",
+    },
   },
   nav: {
     mx: "auto",
@@ -95,9 +109,9 @@ const styles = {
       display: "block",
     },
     a: {
-      fontSize: 2,
+      fontSize: 3,
       fontWeight: "body",
-      px: 5,
+      px: 3,
       cursor: "pointer",
       lineHeight: "1.2",
       transition: "all 0.15s",
@@ -107,6 +121,24 @@ const styles = {
       "&.active": {
         color: "secondary",
       },
+    },
+  },
+  rightContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    button: {
+      fontSize: "14px",
+      fontWeight: "400",
+      ml: "10px",
+      mr: "0px",
+    },
+    select: {
+      fontSize: "16px",
+      fontWeight: "500",
+      px: "10px",
+      py: "10px",
     },
   },
 };

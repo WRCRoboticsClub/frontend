@@ -1,6 +1,4 @@
 import { Box, Heading, Text, Image, Button } from "theme-ui";
-import ShapeLeft from "../assets/shape-left.png";
-import ShapeRight from "../assets/shape-right.png";
 import ShapePattern1 from "../assets/shape-pattern1.png";
 import ShapePattern2 from "../assets/shape-pattern2.png";
 
