@@ -38,7 +38,7 @@ const social = [
 export default function Footer() {
   return (
     <>
-      <footer sx={styles.footer}>
+      <footer sx={styles.footer} id="footer">
         <Container>
           <Box sx={styles.footer.footerBottomArea}>
             <Box sx={styles.footerLink}>

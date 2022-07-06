@@ -1,26 +1,73 @@
 /** @jsxImportSource @theme-ui/core */
 import { jsx } from "theme-ui";
 import { Text, Heading, Image, Box, Link } from "theme-ui";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 
-export default function TeamCard({ src, altText, title, designation, social }) {
+export default function TeamCard({
+  src,
+  altText,
+  title,
+  designation,
+  fb,
+  insta,
+  tweet,
+  linkedin,
+}) {
+  const imageId = src.split("/")[5].split("=")[2];
+  console.log("imageId", title, imageId);
+
   return (
     <Box sx={styles.card}>
-      <Image src={src} alt={altText} sx={styles.memberThumb} />
+      <Image
+        src={`https://lh3.google.com/u/0/d/${imageId}`}
+        alt={altText}
+        sx={styles.memberThumb}
+      />
       <Box sx={styles.infoWrapper}>
         <Heading className="info__name" sx={styles.infoWrapper}>
           {title}
         </Heading>
         <Text className="info__designationn" sx={styles.infoWrapper}>
-          {designation}
+          {designation.toUpperCase()}
         </Text>
       </Box>
 
       <Box sx={styles.socialShare} className="social__share">
-        {social.map((item) => (
+        {/* {social.map((item) => (
           <Link key={item.id} href={item.path} className={item.name}>
             {item.icon}
           </Link>
-        ))}
+        ))} */}
+        {fb !== "" && (
+          <Link href={fb} className="facebook" target="_blank">
+            <FaFacebookF />
+          </Link>
+        )}
+
+        {insta !== "" && (
+          <Link href={insta} className="instagram" target="_blank">
+            <FaInstagram />
+          </Link>
+        )}
+
+        {tweet !== "" && (
+          <Link href={tweet} className="twitter" target="_blank">
+            <FaTwitter />
+          </Link>
+        )}
+        {/* <Link href={insta} className="instagram" target="_blank">
+          <FaInstagram />
+        </Link> */}
+        {linkedin !== "" && (
+          <Link href={linkedin} className="linkedin" target="_blank">
+            <FaLinkedin />
+          </Link>
+        )}
       </Box>
     </Box>
   );
@@ -57,6 +104,7 @@ const styles = {
   memberThumb: {
     width: ["70px", "80px", "100px", null, null, "130px"],
     height: ["70px", "80px", "100px", null, null, "130px"],
+    objectFit: "cover",
     flexShrink: 0,
     border: "2px solid",
     borderColor: "primary",

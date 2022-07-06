@@ -3,30 +3,46 @@ import { jsx } from "theme-ui";
 import { Container, Grid } from "theme-ui";
 import SectionHeader from "../components/section-header";
 import TeamCard from "../components/team-card";
-import { data } from "../data/committee.data";
+// import { data } from "../data/committee.data";
 
-export default function Committee() {
+export default function Committee({ committeeData }) {
+  // committeeData.sort((a, b) => {
+  //   return a.position - b.position;
+  // });
+
+  //console.log("api", committeeData);
   return (
-    <section sx={styles.banner}>
+    <section sx={styles.banner} id="committee">
       <Container sx={styles.banner.container}>
-        <SectionHeader
-          slogan="Meet Our Enthusiastic Team"
-        />
+        <SectionHeader slogan="Meet Our Enthusiastic 17th Executive Committee" />
         <Grid sx={styles.grid}>
-          {data.map((item) => (
+          {committeeData.map((item) => (
             <TeamCard
               key={item.id}
-              src={item.imgSrc.src}
-              title={item.title}
-              altText={item.altText}
-              designation={item.designation}
-              social={item.socialProfile}
+              src={item.picture}
+              title={item.name}
+              altText={item.name}
+              email={item.email}
+              designation={item.position}
+              fb={item.fb}
+              insta={item.insta}
+              tweet={item.tweet}
+              linkedin={item.lnkdin}
             />
           ))}
         </Grid>
       </Container>
     </section>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://backend-robotics.herokuapp.com/comittee`);
+  const committeeData = await res.json();
+
+  // Pass data to the page via props
+  return { props: { committeeData } };
 }
 
 const styles = {

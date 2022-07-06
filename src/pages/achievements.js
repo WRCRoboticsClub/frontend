@@ -3,11 +3,11 @@ import { fakeDatas } from "../data/achievements.data";
 
 export default function Achievements() {
   return (
-    <>
+    <section sx={styles.banner} id="achievement">
       {fakeDatas.map((sData, index) => {
         //always use keys for react while mapping
         return <SingleAchievement key={index} infos={sData} />;
       })}
-    </>
+    </section>
   );
 }

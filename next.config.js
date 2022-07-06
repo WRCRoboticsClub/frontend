@@ -7,5 +7,8 @@ module.exports = {
       },
     },
   },
+  images: {
+    domains: ["https://lh3.google.com/u/0/d/"],
+  },
   // distDir: 'build',
 };

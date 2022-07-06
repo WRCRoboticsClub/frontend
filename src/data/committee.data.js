@@ -21,7 +21,7 @@ export const data = [
     imgSrc: Member1,
     altText: "Shishir Babu Rijal",
     title: "Shishir Babu Rijal",
-    designation: "Executive Head",
+    position: "Executive Head",
     socialProfile: [
       {
         id: 1,
@@ -48,7 +48,7 @@ export const data = [
     imgSrc: Member2,
     altText: "Sachin Giri",
     title: "Sachin Giri",
-    designation: "Executive Member",
+    position: "Executive Member",
     socialProfile: [
       {
         id: 1,
@@ -75,7 +75,7 @@ export const data = [
     imgSrc: Member3,
     altText: "Shikshya Shrestha",
     title: "Shikshya Shrestha",
-    designation: "Executive Member",
+    position: "Executive Member",
     socialProfile: [
       {
         id: 1,
@@ -102,7 +102,7 @@ export const data = [
     imgSrc: Member4,
     altText: "Roshan KC",
     title: "Roshan KC",
-    designation: "Executive Member",
+    position: "Executive Member",
     socialProfile: [
       {
         id: 1,
@@ -129,7 +129,7 @@ export const data = [
     imgSrc: Member5,
     altText: "Sagar Thapa",
     title: "Sagar Thapa",
-    designation: "Executive Member",
+    position: "Executive Member",
     socialProfile: [
       {
         id: 1,
@@ -156,7 +156,7 @@ export const data = [
     imgSrc: Member6,
     altText: "Kushal Guragain",
     title: "Kushal Guragain",
-    designation: "Executive Member",
+    position: "Executive Member",
     socialProfile: [
       {
         id: 1,
@@ -183,7 +183,7 @@ export const data = [
     imgSrc: Member7,
     altText: "Nabin Bhattarai",
     title: "Nabin Bhattarai",
-    designation: "Project Combustor",
+    position: "Project Combustor",
     socialProfile: [
       {
         id: 1,
@@ -210,7 +210,7 @@ export const data = [
     imgSrc: Member8,
     altText: "Laxmi Mahara",
     title: "Laxmi Mahara",
-    designation: "Media Rectifier",
+    position: "Media Rectifier",
     socialProfile: [
       {
         id: 1,
@@ -237,7 +237,7 @@ export const data = [
     imgSrc: Member9,
     altText: "Anis Shrestha",
     title: "Anis Shrestha",
-    designation: "Design Transformer",
+    position: "Design Transformer",
     socialProfile: [
       {
         id: 1,
@@ -264,7 +264,7 @@ export const data = [
     imgSrc: Member10,
     altText: "Sunil Shah",
     title: "Sunil Shah",
-    designation: "Logistics Shaft",
+    position: "Logistics Shaft",
     socialProfile: [
       {
         id: 1,
@@ -291,7 +291,7 @@ export const data = [
     imgSrc: Member11,
     altText: "Kishor GC",
     title: "Kishor GC",
-    designation: "Public Relation Processor",
+    position: "Public Relation Processor",
     socialProfile: [
       {
         id: 1,
@@ -318,7 +318,7 @@ export const data = [
     imgSrc: Member12,
     altText: "Dipendra Sah",
     title: "Dipendra Sah",
-    designation: "Member",
+    position: "Member",
     socialProfile: [
       {
         id: 1,
@@ -345,7 +345,7 @@ export const data = [
     imgSrc: Member13,
     altText: "Prakash Chandra Badu",
     title: "Prakash Chandra Badu",
-    designation: "Member",
+    position: "Member",
     socialProfile: [
       {
         id: 1,
@@ -372,7 +372,7 @@ export const data = [
     imgSrc: Member14,
     altText: "Karun KC",
     title: "Karun KC",
-    designation: "Member",
+    position: "Member",
     socialProfile: [
       {
         id: 1,
@@ -399,7 +399,7 @@ export const data = [
     imgSrc: Member15,
     altText: "Om Prakash Tharu",
     title: "Om Prakash Tharu",
-    designation: "Member",
+    position: "Member",
     socialProfile: [
       {
         id: 1,
