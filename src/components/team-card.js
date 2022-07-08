@@ -18,16 +18,12 @@ export default function TeamCard({
   tweet,
   linkedin,
 }) {
-  const imageId = src.split("/")[5].split("=")[2];
-  console.log("imageId", title, imageId);
+  // const imageId = src.split("/")[5].split("=")[2];
+  // console.log("imageId", title, src);
 
   return (
     <Box sx={styles.card}>
-      <Image
-        src={`https://lh3.google.com/u/0/d/${imageId}`}
-        alt={altText}
-        sx={styles.memberThumb}
-      />
+      <Image src={src} alt={altText} sx={styles.memberThumb} />
       <Box sx={styles.infoWrapper}>
         <Heading className="info__name" sx={styles.infoWrapper}>
           {title}
