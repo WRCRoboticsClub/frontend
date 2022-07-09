@@ -102,6 +102,7 @@ export default function registerForm() {
                 name="t_name_1"
                 value={formData.t_name_1}
                 onChange={onChange}
+                required
               />
               <input
                 type="text"
@@ -127,7 +128,14 @@ export default function registerForm() {
               <div className="agree">
                 <input type="checkbox" className="agreebox" />
                 <label for="agree">
-                  I agree to the terms and conditions of the event.
+                  I agree to the{" "}
+                  <a
+                    color="blue"
+                    href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf"
+                  >
+                    rules
+                  </a>
+                  ,terms and conditions of the event.
                   <b>"Battle for speed 2022"</b>.
                 </label>
               </div>
@@ -143,6 +151,7 @@ export default function registerForm() {
                 name="team_name"
                 value={formData.team_name}
                 onChange={onChange}
+                required
               />
               <input
                 type="text"
@@ -150,6 +159,7 @@ export default function registerForm() {
                 name="b_name"
                 value={formData.b_name}
                 onChange={onChange}
+                required
               />
               <input
                 type="text"
@@ -157,6 +167,7 @@ export default function registerForm() {
                 name="clz"
                 value={formData.clz}
                 onChange={onChange}
+                required
               />
 
               <input
@@ -165,6 +176,7 @@ export default function registerForm() {
                 name="p_email"
                 value={formData.p_email}
                 onChange={onChange}
+                required
               />
               <input
                 type="phone"
@@ -172,6 +184,7 @@ export default function registerForm() {
                 name="p_contact"
                 value={formData.p_contact}
                 onChange={onChange}
+                required
               />
               <input
                 type="email"
