@@ -6,8 +6,10 @@ import Logo from "../logo";
 import LogoDark from "../../assets/Club_logo.png";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "../../data/header.data";
+import { useRouter } from "next/router";
 
 export default function Header({ className, isOpen, setIsOpen }) {
+  const router = useRouter();
   return (
     <header sx={styles.header} className={className}>
       <Container sx={styles.container}>
@@ -43,9 +45,9 @@ export default function Header({ className, isOpen, setIsOpen }) {
           variant="secondary"
           aria-label="Get Started"
           sx={styles.rightContainer.button}
-          // onClick={}
+          onClick={() => router.push("/registerForm")}
         >
-          Contact Us
+          Register you team now
         </Button>
         {/* </Box> */}
         <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />

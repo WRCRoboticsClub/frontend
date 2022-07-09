@@ -4,6 +4,7 @@ import theme from "../theme";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 import { ModalStack } from "@mattjennings/react-modal-stack";
+import "./registerForm.css";
 
 function MyApp({ Component, pageProps }) {
   return (
