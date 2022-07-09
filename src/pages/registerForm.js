@@ -40,9 +40,15 @@ export default function registerForm() {
   };
 
   const getToken = async () => {
-    const response = await fetch(tokenurl);
+    const response = await fetch(tokenurl, {
+      method: "GET",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+    });
 
-    setToken(response);
+    const tokenid = await response.json();
+    setToken(tokenid[0]);
   };
 
   const handleNextPage = (e) => {
@@ -53,21 +59,38 @@ export default function registerForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsOpen(true);
+    if (
+      formData.team_name === "" ||
+      formData.b_name === "" ||
+      formData.clz === "" ||
+      formData.p_email === "" ||
+      formData.p_contact === "" ||
+      formData.t_name_1 === ""
+    ) {
+      setIsOpen(true);
+      setMessage({
+        message: "Please fill the form completely",
+        title: "Error",
+      });
+      return;
+    }
+
     const response = await fetch(formurl, {
       method: "POST",
-      body: JSON.stringify({ token: token, formData }),
+      body: JSON.stringify({ _token: token, formData }),
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (response.statusText === "OK") {
+      setIsOpen(true);
       setMessage({
         message:
           "Thank you for registering. We hope to meet you soon in the event!",
         title: "Registration Successful",
       });
     } else {
+      setIsOpen(true);
       setMessage({
         message: "Something went wrong. Please try again later.",
         title: "Registration Failed",
@@ -127,7 +150,7 @@ export default function registerForm() {
               />
               <div className="agree">
                 <input type="checkbox" className="agreebox" />
-                <label for="agree">
+                <label htmlFor="agree">
                   I agree to the{" "}
                   <a
                     color="blue"
