@@ -63,7 +63,7 @@ export default function Footer() {
 
             <Box sx={styles.contact}>
               <Text sx={styles.contact.title}>Contact Us</Text>
-              <Text sx={styles.contact.phone}>robotics@wrc.edu.np</Text>
+              <Text sx={styles.contact.email}>robotics@wrc.edu.np</Text>
               <Box sx={styles.contact.container}>
                 {/* <Box sx={styles.contact.info}>
                 <Text sx={styles.contact.phone}>+9779846211026</Text>
@@ -118,7 +118,7 @@ const styles = {
       flexDirection: "row",
       justifyContent: "space-between",
 
-      "@media screen and (max-width:576px)": {
+      "@media screen and (max-width:700px)": {
         flexDirection: "column",
       },
     },
@@ -215,6 +215,14 @@ const styles = {
       px: [2, null, 4],
     },
     phone: {
+      fontSize: [1, "17px", "20px"],
+      color: "primary",
+      fontWeight: "700",
+      fontFamily: "Verdana,sans-serif",
+      mb: 2,
+      cursor: "pointer",
+    },
+    email: {
       fontSize: [1, "27px"],
       color: "primary",
       fontWeight: "700",
