@@ -43,15 +43,15 @@ export default function registerForm() {
             <form action="#">
               <h1>Enter your mentor and team member details</h1>
               {/* <span>or use your email for registration</span> */}
-              <input type="text" placeholder="Team Mentor" />
-              <input type="text" placeholder="Team Member 1" />
-              <input type="text" placeholder="Team Member 2" />
-              <input type="text" placeholder="Team Member 3" />
-              <input type="text" placeholder="Team Member 4" />
+              <input type="text" placeholder="Team Mentor" name="m_name"/>
+              <input type="text" placeholder="Team Member 1" name="t_name_1" required/>
+              <input type="text" placeholder="Team Member 2" name="t_name_2"/>
+              <input type="text" placeholder="Team Member 3" name="t_name_3"/>
+              <input type="text" placeholder="Team Member 4" name="t_name_4"/>
               <div className="agree">
                 <input type="checkbox" className="agreebox"/>
                 <label for="agree">
-                  I agree to the terms and conditions of the event.
+                  I agree to the <a color="blue" href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf">rules</a>,terms and conditions of the event.
                   <b>"Battle for speed 2022"</b>.
                 </label>
               </div>
@@ -61,12 +61,12 @@ export default function registerForm() {
           <div class="form-container sign-in-container">
             <form action="#">
               <h1>Register for Battle for Speed 2022</h1>
-              <input type="text" placeholder="Team Name" />
-              <input type="text" placeholder="Robot Name" />
-              <input type="text" placeholder="Instituion/Organisation" />
+              <input type="text" placeholder="Team Name" name="team_name" required/>
+              <input type="text" placeholder="Robot Name" name="b_name" required/>
+              <input type="text" placeholder="Instituion/Organisation" name="clz"/>
 
-              <input type="email" placeholder="Primary Email" />
-              <input type="phone" placeholder="Primary Phone Number" />
+              <input type="email" placeholder="Primary Email" name="p_email" required/>
+              <input type="phone" placeholder="Primary Phone Number" name="p_contact" required/>
 
               <button onClick={() => setDrawerOpen(!drawerOpen)}>
                 Next page
