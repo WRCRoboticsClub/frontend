@@ -22,13 +22,13 @@ export default function feedbackForm() {
 
   const clearState = () => {
     setFormData({ name: "", email: "", comment: "" });
-    console.log("cleared");
+    // console.log("cleared");
   };
   const submitForm = async (e) => {
     e.preventDefault();
 
     setIsOpen(true);
-    console.log("before", formData);
+    // console.log("before", formData);
     const response = await fetch(baseurl, {
       method: "POST",
       body: JSON.stringify({ data: 1, formData }),
@@ -36,25 +36,12 @@ export default function feedbackForm() {
         "Content-Type": "application/json",
       },
     });
-    console.log("done", response);
+    // console.log("done", response);
 
     if (response.statusText === "OK") {
       clearState();
     }
   };
-
-  // useEffect(() => {
-  //   if (clearValue) {
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       comment: "",
-  //     });
-  //     console.log("after", formData);
-  //   } else {
-  //     console.log("nokay");
-  //   }
-  // }, [clearValue]);
 
   return (
     <section sx={styles.banner} id="form">
