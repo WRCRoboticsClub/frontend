@@ -15,6 +15,7 @@ export default function registerForm() {
     title: "",
   });
   const [formData, setFormData] = useState({
+    _token : token,
     team_name: "",
     b_name: "",
     clz: "",
@@ -41,8 +42,9 @@ export default function registerForm() {
 
   const getToken = async () => {
     const response = await fetch(tokenurl);
-
-    setToken(response);
+    var temp = response.text();
+    
+    temp.then((value) => {setToken(JSON.parse(value)[0])});
   };
 
   const handleNextPage = (e) => {
@@ -56,10 +58,8 @@ export default function registerForm() {
     setIsOpen(true);
     const response = await fetch(formurl, {
       method: "POST",
-      body: JSON.stringify({ token: token, formData }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body: JSON.stringify({ formData }),
+      mode:'cors'
     });
     if (response.statusText === "OK") {
       setMessage({
