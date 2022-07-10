@@ -2,11 +2,13 @@
 import { useState, useEffect } from "react";
 import { Container, Box } from "theme-ui";
 import Modal from "../components/Modal";
+import { useRouter } from "next/router";
 
 const tokenurl = "https://backend-robotics.herokuapp.com/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
+  const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState({
@@ -99,6 +101,9 @@ export default function registerForm() {
           "Thank you for registering. We hope to meet you soon in the event!",
         title: "Registration Successful",
       });
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
     } else {
       setIsOpen(true);
       setMessage({
