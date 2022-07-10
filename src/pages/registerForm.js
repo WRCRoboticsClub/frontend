@@ -4,7 +4,7 @@ import { Container, Box } from "theme-ui";
 import Modal from "../components/Modal";
 import { useRouter } from "next/router";
 
-const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
+const tokenurl = "https://backend-robotics.herokuapp.com/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
