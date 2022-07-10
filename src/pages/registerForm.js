@@ -4,7 +4,7 @@ import { Container, Box } from "theme-ui";
 import Modal from "../components/Modal";
 
 const tokenurl = "https://backend-robotics.herokuapp.com/token";
-const formurl = "https://backend-robotics.herokuapp.com/form";
+const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -73,15 +73,7 @@ export default function registerForm() {
 
     const response = await fetch(formurl, {
       method: "POST",
-<<<<<<< HEAD
-      body: JSON.stringify({ formData }),
-      mode:'cors'
-=======
-      body: JSON.stringify({ _token: token, formData }),
-      headers: {
-        "Content-Type": "application/json",
-      },
->>>>>>> 544f9720f4449b347a6af99dceb6eee1f881c331
+      body: JSON.stringify({ _token: "token", formData }),
     });
     if (response.statusText === "OK") {
       setIsOpen(true);
