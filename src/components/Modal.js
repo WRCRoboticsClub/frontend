@@ -33,7 +33,7 @@ export default function Modal({ open, setOpen, title, message }) {
         <div sx={styles.containerBox}>
           <h2>{title}</h2>
           <p>{message}</p>
-          <Button onClick={() => closeModal()}>Close</Button>
+          <button onClick={() => closeModal()}>Close</button>
         </div>
       </div>
     </ModalStack>
@@ -64,7 +64,8 @@ const styles = {
   },
   containerBox: {
     width: 400,
-    height: 200,
+    height: 250,
+    textAlign: "center",
     padding: "0 16px",
     borderRadius: "10px",
     background: "white",

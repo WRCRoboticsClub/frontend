@@ -8,14 +8,13 @@ const formurl = "https://backend-robotics.herokuapp.com/form";
 
 export default function registerForm() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [token, setToken] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState({
     message: "",
     title: "",
   });
   const [formData, setFormData] = useState({
-    _token : token,
+    _token: "",
     team_name: "",
     b_name: "",
     clz: "",
@@ -41,16 +40,33 @@ export default function registerForm() {
   };
 
   const getToken = async () => {
-    const response = await fetch(tokenurl);
-    var temp = response.text();
-    
-    temp.then((value) => {setToken(JSON.parse(value)[0])});
+    const response = await fetch(tokenurl, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    var tokenid = response.json();
+    //JSON.parse(value)[0]
+    tokenid.then((value) => {
+      setFormData((prevState) => ({
+        ...prevState,
+        _token: JSON.parse(value)[0],
+      }));
+    });
+    // setFormData((prevState) => ({ ...prevState, _token: tokenid[0] }));
   };
 
   const handleNextPage = (e) => {
     e.preventDefault();
     setDrawerOpen(!drawerOpen);
     getToken();
+  };
+
+  const handlePrevious = (e) => {
+    e.preventDefault();
+    setDrawerOpen(!drawerOpen);
   };
 
   const handleSubmit = async (e) => {
@@ -65,7 +81,8 @@ export default function registerForm() {
     ) {
       setIsOpen(true);
       setMessage({
-        message: "Please fill the form completely",
+        message:
+          "Team name, Bot name, Institution, Primary Email, Primary Contact, and at least one team member name are required.",
         title: "Error",
       });
       return;
@@ -73,15 +90,11 @@ export default function registerForm() {
 
     const response = await fetch(formurl, {
       method: "POST",
-<<<<<<< HEAD
       body: JSON.stringify({ formData }),
-      mode:'cors'
-=======
-      body: JSON.stringify({ _token: token, formData }),
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
->>>>>>> 544f9720f4449b347a6af99dceb6eee1f881c331
     });
     if (response.statusText === "OK") {
       setIsOpen(true);
@@ -99,8 +112,7 @@ export default function registerForm() {
     }
     console.log("done", response);
   };
-  console.log("token", token);
-  console.log("formData", formData);
+  // console.log("formData", formData);
 
   return (
     <section sx={styles.banner} id="register-form">
@@ -154,16 +166,27 @@ export default function registerForm() {
                 <label htmlFor="agree">
                   I agree to the{" "}
                   <a
-                    color="blue"
+                    color="primary"
                     href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf"
+                    target="_blank"
                   >
-                    rules
+                    <b>
+                      <u>
+                        <mark>Rule Book</mark>
+                      </u>
+                    </b>
                   </a>
                   ,terms and conditions of the event.
                   <b>"Battle for speed 2022"</b>.
                 </label>
               </div>
-              <button onClick={(e) => handleSubmit(e)}>Submit</button>
+
+              <div className="previousSubmit">
+                <button className="previous" onClick={(e) => handlePrevious(e)}>
+                  Back
+                </button>
+                <button onClick={(e) => handleSubmit(e)}>Submit</button>
+              </div>
             </form>
           </div>
           <div className="form-container sign-in-container">
@@ -217,13 +240,6 @@ export default function registerForm() {
                 value={formData.s_email}
                 onChange={onChange}
               />
-              {/* <input
-                type="phone"
-                placeholder="Alternative Phone Number"
-                name="s_contact"
-                value={formData.s_contact}
-                onChange={onChange}
-              /> */}
               <button onClick={(e) => handleNextPage(e)}>Next page</button>
             </Box>
           </div>
