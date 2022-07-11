@@ -1,76 +1,16 @@
 /** @jsxImportSource @theme-ui/core */
 import { useState, useEffect } from "react";
 import { Container, Box } from "theme-ui";
+import Modal from "../../components/Modal";
 import { useRouter } from "next/router";
 
 const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
-const confirmApplicationTable = ({ formData }) => {
-  //   m_name: "",
-  //   t_name_1: "",
-  //   t_name_2: "",
-  //   t_name_3: "",
-  //   t_name_4: "",
-  return (
-    <table id="confirmApplication">
-      <tbody>
-        <tr>
-          <td>Team Name</td>
-          <td>{formData.team_name}</td>
-        </tr>
-        <tr>
-          <td>Bot Name</td>
-          <td>{formData.b_name}</td>
-        </tr>
-        <tr>
-          <td>Institution</td>
-          <td>{formData.clz}</td>
-        </tr>
-
-        <tr>
-          <td>Primary Email</td>
-          <td>{formData.p_email}</td>
-        </tr>
-        <tr>
-          <td>Primary Contact</td>
-          <td>{formData.p_contact}</td>
-        </tr>
-        <tr>
-          <td>Secondary Email</td>
-          <td>{formData.s_email}</td>
-        </tr>
-
-        <tr>
-          <td>Team Mentor Name</td>
-          <td>{formData.m_name}</td>
-        </tr>
-        <tr>
-          <td>Team Member 1</td>
-          <td>{formData.t_name_1}</td>
-        </tr>
-        <tr>
-          <td>Team Member 2</td>
-          <td>{formData.t_name_2}</td>
-        </tr>
-        <tr>
-          <td>Team Member 3</td>
-          <td>{formData.t_name_3}</td>
-        </tr>
-        <tr>
-          <td>Team Member 4</td>
-          <td>{formData.t_name_4}</td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
-
 export default function registerForm() {
   const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [isConfirm, setIsConfirm] = useState(false);
   const [message, setMessage] = useState({
     message: "",
     title: "",
@@ -83,6 +23,7 @@ export default function registerForm() {
     p_email: "",
     p_contact: "",
     s_email: "",
+    s_contact: "",
     m_name: "",
     t_name_1: "",
     t_name_2: "",
@@ -95,10 +36,10 @@ export default function registerForm() {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  // const clearState = () => {
-  //   setFormData({ name: "", email: "", comment: "" });
-  //   console.log("cleared");
-  // };
+  const clearState = () => {
+    setFormData({ name: "", email: "", comment: "" });
+    console.log("cleared");
+  };
 
   const getToken = async () => {
     const response = await fetch(tokenurl, {
@@ -109,15 +50,16 @@ export default function registerForm() {
       },
     });
     var tokenid = response.json();
+    //JSON.parse(value)[0]
     tokenid.then((value) => {
       setFormData((prevState) => ({
         ...prevState,
         _token: JSON.parse(value)[0],
       }));
     });
+    // setFormData((prevState) => ({ ...prevState, _token: tokenid[0] }));
   };
 
- 
   const handleNextPage = (e) => {
     e.preventDefault();
     setDrawerOpen(!drawerOpen);
@@ -129,7 +71,7 @@ export default function registerForm() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const confirmApplication = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (
       formData.team_name === "" ||
@@ -147,17 +89,6 @@ export default function registerForm() {
       });
       return;
     }
-
-    const tableMessage = confirmApplicationTable({ formData });
-    setMessage({
-      message: tableMessage,
-      title: "Confirm Application",
-    });
-    setIsOpen(true);
-    setIsConfirm(true);
-  };
-  const handleSubmit = async () => {
-    console.log("called submit");
 
     const response = await fetch(formurl, {
       method: "POST",
@@ -255,7 +186,7 @@ export default function registerForm() {
                 <button className="previous" onClick={(e) => handlePrevious(e)}>
                   Back
                 </button>
-                <button onClick={(e) => confirmApplication(e)}>Confirm</button>
+                <button onClick={(e) => handleSubmit(e)}>Submit</button>
               </div>
             </form>
           </div>
@@ -263,7 +194,7 @@ export default function registerForm() {
             <Box as="form">
               <h1>Register for Battle for Speed 2022</h1>
               <h3>
-                Click here:{" "}
+                click here:
                 <a
                   color="primary"
                   href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf"
@@ -355,6 +286,12 @@ export default function registerForm() {
           </div>
         </div>
       </Container>
+      <Modal
+        open={isOpen}
+        setOpen={setIsOpen}
+        title={message.title}
+        message={message.message}
+      />
     </section>
   );
 }
