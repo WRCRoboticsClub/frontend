@@ -1,10 +1,10 @@
 /** @jsxImportSource @theme-ui/core */
 import { useState, useEffect } from "react";
 import { Container, Box } from "theme-ui";
-import Modal from "../components/Modal";
+import Modal from "../../components/Modal";
 import { useRouter } from "next/router";
 
-const tokenurl = "https://backend-robotics.herokuapp.com/token";
+const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
@@ -193,17 +193,19 @@ export default function registerForm() {
           <div className="form-container sign-in-container">
             <Box as="form">
               <h1>Register for Battle for Speed 2022</h1>
-              <h3>click here:<a
-                    color="primary"
-                    href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf"
-                    target="_blank"
-                  >
-                    <b>
-                      <u>
-                        <mark>Rule Book and description</mark>
-                      </u>
-                    </b>
-                  </a>
+              <h3>
+                click here:
+                <a
+                  color="primary"
+                  href="https://robotics.wrc.edu.np/files/BOS-RuleBook_2022.pdf"
+                  target="_blank"
+                >
+                  <b>
+                    <u>
+                      <mark>Rule Book and description</mark>
+                    </u>
+                  </b>
+                </a>
               </h3>
               <input
                 type="text"

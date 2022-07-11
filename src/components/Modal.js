@@ -1,7 +1,5 @@
 /** @jsxImportSource @theme-ui/core */
-import React from "react";
 import { ModalStack } from "@mattjennings/react-modal-stack";
-import { Button } from "theme-ui";
 
 export default function Modal({ open, setOpen, title, message }) {
   const closeModal = () => {
@@ -33,7 +31,15 @@ export default function Modal({ open, setOpen, title, message }) {
         <div sx={styles.containerBox}>
           <h2>{title}</h2>
           <p>{message}</p>
-          <button onClick={() => closeModal()}>Close</button>
+
+          <div>
+            <button onClick={() => closeModal()}>Close</button>
+            {/* {isConfirm && (
+              <button sx={styles.submitButton} onClick={(e) => submitForm(e)}>
+                Submit
+              </button>
+            )} */}
+          </div>
         </div>
       </div>
     </ModalStack>
@@ -73,4 +79,20 @@ const styles = {
     boxShadow:
       "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
   },
+  // containerTable: {
+  //   marginTop: "100px",
+  //   width: "80%",
+  //   height: "75%",
+  //   overflowY: "scroll",
+  //   textAlign: "center",
+  //   padding: "0 16px",
+  //   borderRadius: "10px",
+  //   background: "white",
+  //   border: "1px solid #e5e5e5",
+  //   boxShadow:
+  //     "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  // },
+  // submitButton: {
+  //   marginLeft: "10px",
+  // },
 };
