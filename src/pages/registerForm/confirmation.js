@@ -1,11 +1,80 @@
-import React from "react";
+/** @jsxImportSource @theme-ui/core */
 import { Container } from "theme-ui";
+import { useState } from "react";
 
 export default function Confirmation() {
+  const [formData, setFormData] = useState({
+    _token: "",
+    team_name: "Nema",
+    b_name: "Bema",
+    clz: "tema",
+    p_email: "cat",
+    p_contact: "bat",
+    s_email: "sat",
+    m_name: "nat",
+    t_name_1: "talk",
+    t_name_2: "mock",
+    t_name_3: "shock",
+    t_name_4: "mock",
+  });
   return (
     <section sx={styles.banner} id="register-form">
       <Container sx={styles.banner.container}>
-        <div class="container">Confirmation Page for Application</div>
+        <div className="container">
+          <div className="confirmation-form">
+            <h1>Confirmation Page for Application</h1>
+            <table id="confirmApplication">
+              <tbody>
+                <tr>
+                  <td>Team Name</td>
+                  <td>{formData.team_name}</td>
+                </tr>
+                <tr>
+                  <td>Bot Name</td>
+                  <td>{formData.b_name}</td>
+                </tr>
+                <tr>
+                  <td>Institution</td>
+                  <td>{formData.clz}</td>
+                </tr>
+
+                <tr>
+                  <td>Primary Email</td>
+                  <td>{formData.p_email}</td>
+                </tr>
+                <tr>
+                  <td>Primary Contact</td>
+                  <td>{formData.p_contact}</td>
+                </tr>
+                <tr>
+                  <td>Secondary Email</td>
+                  <td>{formData.s_email}</td>
+                </tr>
+
+                <tr>
+                  <td>Team Mentor Name</td>
+                  <td>{formData.m_name}</td>
+                </tr>
+                <tr>
+                  <td>Team Member 1</td>
+                  <td>{formData.t_name_1}</td>
+                </tr>
+                <tr>
+                  <td>Team Member 2</td>
+                  <td>{formData.t_name_2}</td>
+                </tr>
+                <tr>
+                  <td>Team Member 3</td>
+                  <td>{formData.t_name_3}</td>
+                </tr>
+                <tr>
+                  <td>Team Member 4</td>
+                  <td>{formData.t_name_4}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </Container>
     </section>
   );

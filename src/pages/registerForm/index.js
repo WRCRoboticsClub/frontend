@@ -7,11 +7,6 @@ const tokenurl = "https://backend-robotics.herokuapp.com/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 const confirmApplicationTable = ({ formData }) => {
-  //   m_name: "",
-  //   t_name_1: "",
-  //   t_name_2: "",
-  //   t_name_3: "",
-  //   t_name_4: "",
   return (
     <table id="confirmApplication">
       <tbody>
