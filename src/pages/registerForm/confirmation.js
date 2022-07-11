@@ -1,6 +1,9 @@
 /** @jsxImportSource @theme-ui/core */
-import { Container } from "theme-ui";
+import { Container, Box } from "theme-ui";
 import { useState } from "react";
+import { useRouter } from "next/router";
+
+import SectionHeader from "../../components/section-header";
 
 export default function Confirmation() {
   const [formData, setFormData] = useState({
@@ -17,12 +20,15 @@ export default function Confirmation() {
     t_name_3: "shock",
     t_name_4: "mock",
   });
+  const router = useRouter();
+
   return (
     <section sx={styles.banner} id="register-form">
       <Container sx={styles.banner.container}>
         <div className="container">
           <div className="confirmation-form">
-            <h1>Confirmation Page for Application</h1>
+            <SectionHeader title="Confirmation your Application" />
+
             <table id="confirmApplication">
               <tbody>
                 <tr>
@@ -73,6 +79,14 @@ export default function Confirmation() {
                 </tr>
               </tbody>
             </table>
+            <Box sx={styles.stepsContainer}>
+              <button onClick={() => router.push("/registerForm")}>
+                Check
+              </button>
+              <button onClick={() => router.push("/registerForm/payment")}>
+                Pay
+              </button>
+            </Box>
           </div>
         </div>
       </Container>
@@ -91,5 +105,11 @@ const styles = {
       flexDirection: "row",
       justifyContent: "center",
     },
+  },
+  stepsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 };
