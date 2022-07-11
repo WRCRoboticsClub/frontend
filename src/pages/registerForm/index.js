@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Container, Box } from "theme-ui";
 import { useRouter } from "next/router";
 
-const tokenurl = "https://backend-robotics.herokuapp.com/token";
+const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 const confirmApplicationTable = ({ formData }) => {
