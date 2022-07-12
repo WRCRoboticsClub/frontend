@@ -54,7 +54,7 @@ export default function registerForm() {
     tokenid.then((value) => {
       setFormData((prevState) => ({
         ...prevState,
-        _token: JSON.parse(value)[0],
+        _token: value[0],
       }));
     });
     // setFormData((prevState) => ({ ...prevState, _token: tokenid[0] }));
