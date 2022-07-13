@@ -5,7 +5,6 @@ import Modal from "../../components/Modal";
 import { useRouter } from "next/router";
 
 const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
-const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
   const router = useRouter();
@@ -70,7 +69,7 @@ export default function registerForm() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const handleSubmit = async (e) => {
+  const handleProceed = async (e) => {
     e.preventDefault();
     if (
       formData.team_name === "" ||
@@ -90,30 +89,14 @@ export default function registerForm() {
     }
 
     localStorage.setItem("formData", JSON.stringify(formData));
-    // const response = await fetch(formurl, {
-    //   method: "POST",
-    //   body: JSON.stringify({ _token: "token", formData }),
-    // });
-    // if (response.statusText === "OK") {
-    //   setIsOpen(true);
-    //   setMessage({
-    //     message:
-    //       "Thank you for registering. We hope to meet you soon in the event!",
-    //     title: "Registration Successful",
-    //   });
-    //   setTimeout(() => {
-    //     router.push("/");
-    //   }, 3000);
-    // } else {
-    //   setIsOpen(true);
-    //   setMessage({
-    //     message: "Something went wrong. Please try again later.",
-    //     title: "Registration Failed",
-    //   });
-    // }
-    // console.log("done", response);
+    router.push("/registerForm/confirmation");
   };
-  console.log("formData", formData);
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("formData"))) {
+      setFormData(JSON.parse(localStorage.getItem("formData")));
+    }
+  }, []);
 
   return (
     <section sx={styles.banner} id="register-form">
@@ -186,7 +169,7 @@ export default function registerForm() {
                 <button className="previous" onClick={(e) => handlePrevious(e)}>
                   Back
                 </button>
-                <button onClick={(e) => handleSubmit(e)}>Submit</button>
+                <button onClick={(e) => handleProceed(e)}>Proceed</button>
               </div>
             </form>
           </div>

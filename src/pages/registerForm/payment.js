@@ -1,25 +1,32 @@
 /** @jsxImportSource @theme-ui/core */
 import { Container, Box, Text, Input } from "theme-ui";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import SectionHeader from "../../components/section-header";
 import paymentQr from "../../assets/qr-robotics-site.jpg";
 import Modal from "../../components/Modal";
 
+const formurl = "https://backend-robotics.herokuapp.com/api/form";
+
 export default function Payment() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [transactionCode, setTransactionCode] = useState("");
-  const [allUserData, setAllUserData] = useState({});
   const [message, setMessage] = useState({
     message: "",
     title: "",
   });
-  const teamDetails = JSON.parse(localStorage.getItem("formData")) || {};
+  const [formData, setFormData] = useState({});
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("formData"))) {
+      setFormData(JSON.parse(localStorage.getItem("formData")));
+    }
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!transactionCode) {
       setIsOpen(true);
       setMessage({
@@ -29,12 +36,35 @@ export default function Payment() {
       });
       return;
     }
-    setAllUserData({ teamDetails, transactionCode });
+    setFormData({ ...formData, transaction_code: transactionCode });
+
+    const response = await fetch(formurl, {
+      method: "POST",
+      body: JSON.stringify({ _token: "token", formData }),
+    });
+    if (response.statusText === "OK") {
+      setIsOpen(true);
+      setMessage({
+        message:
+          "Thank you for registering. We will send further details via Email. We hope to meet you soon in the event!",
+        title: "Registration Successful",
+      });
+      setTimeout(() => {
+        router.push("/");
+        localStorage.removeItem("formData");
+      }, 3000);
+    } else {
+      setIsOpen(true);
+      setMessage({
+        message: "Something went wrong. Please try again later.",
+        title: "Registration Failed",
+      });
+    }
+    console.log("done", response);
   };
 
   console.log("transactionCode", transactionCode);
-  console.log("teamDetails", teamDetails);
-  console.log("allUserData", allUserData);
+  console.log("teamDetails", formData);
 
   return (
     <section sx={styles.banner} id="register-form">
