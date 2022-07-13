@@ -60,11 +60,11 @@ export default function Payment() {
         title: "Registration Failed",
       });
     }
-    console.log("done", response);
+    // console.log("done", response);
   };
 
-  console.log("transactionCode", transactionCode);
-  console.log("teamDetails", formData);
+  // console.log("transactionCode", transactionCode);
+  // console.log("teamDetails", formData);
 
   return (
     <section sx={styles.banner} id="register-form">

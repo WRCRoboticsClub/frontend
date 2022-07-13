@@ -35,10 +35,9 @@ export default function registerForm() {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const clearState = () => {
-    setFormData({ name: "", email: "", comment: "" });
-    console.log("cleared");
-  };
+  // const clearState = () => {
+  //   setFormData({ name: "", email: "", comment: "" });
+  // };
 
   const getToken = async () => {
     const response = await fetch(tokenurl, {
