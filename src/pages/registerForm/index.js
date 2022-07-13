@@ -4,7 +4,7 @@ import { Container, Box } from "theme-ui";
 import Modal from "../../components/Modal";
 import { useRouter } from "next/router";
 
-// const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
+const tokenurl = "https://backend-robotics.herokuapp.com/api/token";
 const formurl = "https://backend-robotics.herokuapp.com/api/form";
 
 export default function registerForm() {
@@ -16,6 +16,7 @@ export default function registerForm() {
     title: "",
   });
   const [formData, setFormData] = useState({
+    _token: "",
     team_name: "",
     b_name: "",
     clz: "",
@@ -40,29 +41,28 @@ export default function registerForm() {
     console.log("cleared");
   };
 
-  // const getToken = async () => {
-  //   const response = await fetch(tokenurl, {
-  //     method: "GET",
-  //     mode: "cors",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   var tokenid = response.json();
-  //   //JSON.parse(value)[0]
-  //   tokenid.then((value) => {
-  //     setFormData((prevState) => ({
-  //       ...prevState,
-  //       _token: JSON.parse(value)[0],
-  //     }));
-  //   });
-  //   // setFormData((prevState) => ({ ...prevState, _token: tokenid[0] }));
-  // };
+  const getToken = async () => {
+    const response = await fetch(tokenurl, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    var tokenid = response.json();
+
+    tokenid.then((value) => {
+      setFormData((prevState) => ({
+        ...prevState,
+        _token: value[0],
+      }));
+    });
+  };
 
   const handleNextPage = (e) => {
     e.preventDefault();
     setDrawerOpen(!drawerOpen);
-    // getToken();
+    getToken();
   };
 
   const handlePrevious = (e) => {
@@ -112,7 +112,7 @@ export default function registerForm() {
     }
     console.log("done", response);
   };
-  // console.log("formData", formData);
+  console.log("formData", formData);
 
   return (
     <section sx={styles.banner} id="register-form">
