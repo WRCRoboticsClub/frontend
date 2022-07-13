@@ -1,25 +1,33 @@
 /** @jsxImportSource @theme-ui/core */
 import { Container, Box } from "theme-ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import SectionHeader from "../../components/section-header";
 
 export default function Confirmation() {
-  const [formData, setFormData] = useState({
-    _token: "",
-    team_name: "Nema",
-    b_name: "Bema",
-    clz: "tema",
-    p_email: "cat",
-    p_contact: "bat",
-    s_email: "sat",
-    m_name: "nat",
-    t_name_1: "talk",
-    t_name_2: "mock",
-    t_name_3: "shock",
-    t_name_4: "mock",
-  });
+  // const [formData, setFormData] = useState({
+  //   _token: "",
+  //   team_name: "Nema",
+  //   b_name: "Bema",
+  //   clz: "tema",
+  //   p_email: "cat",
+  //   p_contact: "bat",
+  //   s_email: "sat",
+  //   m_name: "nat",
+  //   t_name_1: "talk",
+  //   t_name_2: "mock",
+  //   t_name_3: "shock",
+  //   t_name_4: "mock",
+  // });
+  // const formData = window.localStorage.getItem("formData") || {};
+
+  const [formData, setFormData] = useState({});
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("formData"))) {
+      setFormData(JSON.parse(localStorage.getItem("formData")));
+    }
+  }, []);
   const router = useRouter();
 
   return (
@@ -79,11 +87,14 @@ export default function Confirmation() {
                 </tr>
               </tbody>
             </table>
-            <Box sx={styles.stepsContainer}>
+            <Box sx={styles.buttonsContainer}>
               <button onClick={() => router.push("/registerForm")}>
                 Check
               </button>
-              <button onClick={() => router.push("/registerForm/payment")}>
+              <button
+                sx={styles.payButton}
+                onClick={() => router.push("/registerForm/payment")}
+              >
                 Pay
               </button>
             </Box>
@@ -106,10 +117,13 @@ const styles = {
       justifyContent: "center",
     },
   },
-  stepsContainer: {
+  buttonsContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  payButton: {
+    marginLeft: "10px",
   },
 };

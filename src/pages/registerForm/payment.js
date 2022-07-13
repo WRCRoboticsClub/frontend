@@ -11,6 +11,31 @@ import Modal from "../../components/Modal";
 export default function Payment() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [transactionCode, setTransactionCode] = useState("");
+  const [allUserData, setAllUserData] = useState({});
+  const [message, setMessage] = useState({
+    message: "",
+    title: "",
+  });
+  const teamDetails = JSON.parse(localStorage.getItem("formData")) || {};
+
+  const handleSubmit = (e) => {
+    if (!transactionCode) {
+      setIsOpen(true);
+      setMessage({
+        message:
+          "You should enter your transaction code to proceed with your registration",
+        title: "Payment Error",
+      });
+      return;
+    }
+    setAllUserData({ teamDetails, transactionCode });
+  };
+
+  console.log("transactionCode", transactionCode);
+  console.log("teamDetails", teamDetails);
+  console.log("allUserData", allUserData);
+
   return (
     <section sx={styles.banner} id="register-form">
       <Container sx={styles.banner.container}>
@@ -26,6 +51,8 @@ export default function Payment() {
                   type="text"
                   placeholder="Transaction Code"
                   name="t_code"
+                  value={transactionCode}
+                  onChange={(e) => setTransactionCode(e.target.value)}
                 />
               </Box>
               <Box sx={styles.qrText}>
@@ -63,11 +90,11 @@ export default function Payment() {
                 </Text>
               </Box>
             </Box>
-            <Box sx={styles.stepsContainer}>
+            <Box sx={styles.buttonsContainer}>
               <button onClick={() => router.push("/registerForm/confirmation")}>
                 Back
               </button>
-              <button onClick={() => setIsOpen(true)}>Submit</button>
+              <button onClick={(e) => handleSubmit(e)}>Submit</button>
             </Box>
           </Box>
         </div>
@@ -76,8 +103,8 @@ export default function Payment() {
       <Modal
         open={isOpen}
         setOpen={setIsOpen}
-        title="Registration Successful"
-        message="Your application has been submitted successfully. We will contact you soon via email."
+        title={message.title}
+        message={message.message}
       />
     </section>
   );
@@ -128,5 +155,11 @@ const styles = {
       fontWeight: "400",
       lineHeight: 1.5,
     },
+  },
+  buttonsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 };

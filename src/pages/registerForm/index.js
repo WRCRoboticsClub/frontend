@@ -89,28 +89,29 @@ export default function registerForm() {
       return;
     }
 
-    const response = await fetch(formurl, {
-      method: "POST",
-      body: JSON.stringify({ _token: "token", formData }),
-    });
-    if (response.statusText === "OK") {
-      setIsOpen(true);
-      setMessage({
-        message:
-          "Thank you for registering. We hope to meet you soon in the event!",
-        title: "Registration Successful",
-      });
-      setTimeout(() => {
-        router.push("/");
-      }, 3000);
-    } else {
-      setIsOpen(true);
-      setMessage({
-        message: "Something went wrong. Please try again later.",
-        title: "Registration Failed",
-      });
-    }
-    console.log("done", response);
+    localStorage.setItem("formData", JSON.stringify(formData));
+    // const response = await fetch(formurl, {
+    //   method: "POST",
+    //   body: JSON.stringify({ _token: "token", formData }),
+    // });
+    // if (response.statusText === "OK") {
+    //   setIsOpen(true);
+    //   setMessage({
+    //     message:
+    //       "Thank you for registering. We hope to meet you soon in the event!",
+    //     title: "Registration Successful",
+    //   });
+    //   setTimeout(() => {
+    //     router.push("/");
+    //   }, 3000);
+    // } else {
+    //   setIsOpen(true);
+    //   setMessage({
+    //     message: "Something went wrong. Please try again later.",
+    //     title: "Registration Failed",
+    //   });
+    // }
+    // console.log("done", response);
   };
   console.log("formData", formData);
 
