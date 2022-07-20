@@ -1,7 +1,10 @@
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
 import PreviousEvents from "../components/previousEvents";
 import BannerImg from "../assets/events/b_f_s_2079.jpg";
+import { useRouter } from "next/router";
+
 export default function Events() {
+  const router = useRouter();
   return (
     <Box>
       <Box sx={styles.banner} id="events">
@@ -12,17 +15,22 @@ export default function Events() {
             </Box>
             <Box sx={styles.banner.contentBox}>
               <Heading variant="heroPrimary" sx={styles.title}>
-              Battle for speed 2022 and Project Demonstration
+                Battle for speed 2022 and Project Demonstration
               </Heading>
               <Box sx={styles.banner.descriptions}>
                 <Text variant="title">Date : shrawan 7,2079</Text>
                 <Text variant="subTitle">Type : physical,competition,open</Text>
                 <Text variant="subTitle">
-                This is a open competition and exhibition by Robotics Club, Paschimanchal Campus.
+                  This is a open competition and exhibition by Robotics Club,
+                  Paschimanchal Campus.
                 </Text>
               </Box>
 
-              <Button sx={styles.banner.button} variant="primary">
+              <Button
+                sx={styles.banner.button}
+                variant="primary"
+                onClick={() => router.push("/registerForm")}
+              >
                 Join In
               </Button>
             </Box>
