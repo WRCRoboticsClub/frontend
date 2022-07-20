@@ -36,11 +36,17 @@ export default function Payment() {
       });
       return;
     }
-    setFormData({ ...formData, transaction_code: transactionCode });
+
+    const data = {
+      ...formData,
+      transaction_code: transactionCode,
+    };
+
+    // setFormData({ ...formData, transaction_code: transactionCode });
 
     const response = await fetch(formurl, {
       method: "POST",
-      body: JSON.stringify({ _token: "token", formData }),
+      body: JSON.stringify({ _token: "token", data }),
     });
     if (response.statusText === "OK") {
       setIsOpen(true);
@@ -64,7 +70,6 @@ export default function Payment() {
   };
 
   // console.log("transactionCode", transactionCode);
-  // console.log("teamDetails", formData);
 
   return (
     <section sx={styles.banner} id="register-form">
