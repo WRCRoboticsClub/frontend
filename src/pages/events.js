@@ -1,6 +1,6 @@
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
 import PreviousEvents from "../components/previousEvents";
-import BannerImg from "../assets/wintersessionposter.jpg";
+import BannerImg from "../assets/events/b_f_s_2079.jpg";
 export default function Events() {
   return (
     <Box>
@@ -12,13 +12,13 @@ export default function Events() {
             </Box>
             <Box sx={styles.banner.contentBox}>
               <Heading variant="heroPrimary" sx={styles.title}>
-                Winter session training 2078
+              Battle for speed 2022 and Project Demonstration
               </Heading>
               <Box sx={styles.banner.descriptions}>
-                <Text variant="title">Date : started from poush 1,2078</Text>
-                <Text variant="subTitle">Type : physical,learning,open</Text>
+                <Text variant="title">Date : shrawan 7,2079</Text>
+                <Text variant="subTitle">Type : physical,competition,open</Text>
                 <Text variant="subTitle">
-                  A workshop and traning session for 2078 batch first year.
+                This is a open competition and exhibition by Robotics Club, Paschimanchal Campus.
                 </Text>
               </Box>
 
