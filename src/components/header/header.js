@@ -40,15 +40,15 @@ export default function Header({ className, isOpen, setIsOpen }) {
           <option value="16th-committee">16th executive committee</option>
         </Select> */}
 
-        <Button
-          // className="donate__btn"
-          variant="secondary"
-          aria-label="Get Started"
-          sx={styles.rightContainer.button}
-          onClick={() => router.push("/registerForm")}
-        >
-          Register you team now
-        </Button>
+//         <Button
+//           // className="donate__btn"
+//           variant="secondary"
+//           aria-label="Get Started"
+//           sx={styles.rightContainer.button}
+//           onClick={() => router.push("/registerForm")}
+//         >
+//           Register you team now
+//         </Button>
         {/* </Box> */}
         <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />
       </Container>
