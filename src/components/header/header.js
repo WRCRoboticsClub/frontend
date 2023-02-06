@@ -30,26 +30,28 @@ export default function Header({ className, isOpen, setIsOpen }) {
             </Link>
           ))}
         </Flex>
-        {/* <Box sx={styles.rightContainer}> */}
-        {/* <Select
+{/*
+        <Box sx={styles.rightContainer}>
+        {<Select
           name="committee"
           defaultValue="17th-committee"
           sx={styles.rightContainer.select}
         >
           <option value="17th-committee">17th executive committee</option>
           <option value="16th-committee">16th executive committee</option>
-        </Select> */}
+        </Select>}
 
-//         <Button
-//           // className="donate__btn"
-//           variant="secondary"
-//           aria-label="Get Started"
-//           sx={styles.rightContainer.button}
-//           onClick={() => router.push("/registerForm")}
-//         >
-//           Register you team now
-//         </Button>
-        {/* </Box> */}
+        <Button
+          // className="donate__btn"
+          variant="secondary"
+          aria-label="Get Started"
+          sx={styles.rightContainer.button}
+          onClick={() => router.push("/registerForm")}
+        >
+          Register you team now
+        </Button>
+        </Box> 
+         */}
         <MobileDrawer isDrawerOpen={isOpen} setIsDrawerOpen={setIsOpen} />
       </Container>
     </header>
